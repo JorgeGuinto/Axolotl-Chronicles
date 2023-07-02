@@ -1,31 +1,25 @@
 package com.guinto.axolotl;
 
 import com.badlogic.gdx.ApplicationAdapter;
+import com.badlogic.gdx.Game;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.ScreenUtils;
+import com.guinto.axolotl.assets.Assets;
+import com.guinto.axolotl.screens.LobbyScreen;
 
-public class AxolotlChronicles extends ApplicationAdapter {
-	SpriteBatch batch;
-	Texture img;
+public class AxolotlChronicles extends Game {
+	public SpriteBatch batch;
 	
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
-		img = new Texture("badlogic.jpg");
+		Assets.load();
+		setScreen(new LobbyScreen(this));
 	}
 
 	@Override
 	public void render () {
-		ScreenUtils.clear(1, 0, 0, 1);
-		batch.begin();
-		batch.draw(img, 0, 0);
-		batch.end();
-	}
-	
-	@Override
-	public void dispose () {
-		batch.dispose();
-		img.dispose();
+		super.render();
 	}
 }
