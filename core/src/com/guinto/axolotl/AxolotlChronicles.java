@@ -7,13 +7,15 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.guinto.axolotl.assets.Assets;
 import com.guinto.axolotl.screens.LobbyScreen;
+import com.guinto.axolotl.user.User;
 
 public class AxolotlChronicles extends Game {
 	public SpriteBatch batch;
-	
+	public User user;
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
+		user = new User("Jorge Test", "MX001");
 		Assets.load();
 		setScreen(new LobbyScreen(this));
 	}

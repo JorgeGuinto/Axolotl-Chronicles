@@ -1,3 +1,15 @@
+buildscript {
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath "com.mobidevelop.robovm:robovm-gradle-plugin:$roboVMVersion"
+	}
+}
+
+apply plugin: "java"
+apply plugin: "robovm"
+
 sourceSets.main.java.srcDirs = [ "src/" ]
 
 sourceCompatibility = '1.7'

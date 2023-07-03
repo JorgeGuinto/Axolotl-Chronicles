@@ -11,10 +11,12 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 import com.guinto.axolotl.AxolotlChronicles;
 import com.guinto.axolotl.assets.Assets;
 import com.guinto.axolotl.characters.Axolotl;
+import com.guinto.axolotl.renderers.LobbyRenderer;
 
 public class LobbyScreen extends ScreenAdapter {
 
     private AxolotlChronicles game;
+    LobbyRenderer renderer;
     private OrthographicCamera guiCam;
 //    private LobbyRenderer renderer;
     private float duration = 0;
@@ -24,6 +26,7 @@ public class LobbyScreen extends ScreenAdapter {
 
     public LobbyScreen(AxolotlChronicles game) {
         this.game = game;
+        renderer = new LobbyRenderer(game);
         setViewport();
         touchPoint = new Vector3();
         stage = new Stage(viewport, game.batch);
@@ -65,11 +68,8 @@ public class LobbyScreen extends ScreenAdapter {
 
         guiCam.update();
         game.batch.setProjectionMatrix(guiCam.combined);
-        game.batch.disableBlending();
 
-        game.batch.begin();
-        game.batch.draw(Assets.lobbyBackgroundRegion, 0, 0);
-        game.batch.end();
+        renderer.render();
 
 //        game.batch.enableBlending();
 //        game.batch.begin();

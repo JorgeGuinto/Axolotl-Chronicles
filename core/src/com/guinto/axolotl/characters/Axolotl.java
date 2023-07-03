@@ -40,6 +40,19 @@ public class Axolotl extends Actor {
         this.CODE = CODE;
         //Get all the fields from the json file with the code
     }
+
+    public Axolotl(Vector2 velocity, String CODE, boolean owned, int life, int ability, int defense, int damage, int attackSpeed, int rechargeAbilitySpeed) {
+        this.velocity = velocity;
+        this.CODE = CODE;
+        this.owned = owned;
+        this.life = life;
+        this.ability = ability;
+        this.defense = defense;
+        this.damage = damage;
+        this.attackSpeed = attackSpeed;
+        this.rechargeAbilitySpeed = rechargeAbilitySpeed;
+    }
+
     // == Private Methods ==
     // == Public Methods ==
     // == Override Methods ==
