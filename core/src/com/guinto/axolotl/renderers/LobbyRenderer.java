@@ -25,10 +25,8 @@ public class LobbyRenderer {
     }
     public void loadCharacters() {
         popCharacters();
-
         for (Axolotl axolotl : poppedCharacters) {
-            regions.add(Assets.atlas.findRegion(axolotl.getCODE()));
-            animations.add(Assets.getCharacterAnimation(axolotl.getCODE()));
+            animations.add(axolotl.getCharacterAnimation());
         }
     }
 
@@ -63,7 +61,7 @@ public class LobbyRenderer {
             poppedCharacters = new ArrayList<>(game.user.unlockedCharacters);
             Collections.shuffle(poppedCharacters);
 
-            int characterToShow = Math.min(2, game.user.unlockedCharacters.size());
+            int characterToShow = Math.min(7, game.user.unlockedCharacters.size());
 
             poppedCharacters = new ArrayList<>(poppedCharacters.subList(0, characterToShow));
         }

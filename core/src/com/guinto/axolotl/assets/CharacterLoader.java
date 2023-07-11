@@ -4,7 +4,6 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import com.guinto.axolotl.characters.Axolotl;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -12,6 +11,7 @@ import java.io.IOException;
 public class CharacterLoader {
 
     public static JsonArray charactersArray;
+
     public static void loadFile() {
         String filePath = "assets/charactersInfo/charactersTest.json";
         try (FileReader reader = new FileReader(filePath)) {
@@ -23,7 +23,7 @@ public class CharacterLoader {
         }
     }
 
-    public static JsonObject createCharacter(String code) {
+    public static JsonObject findCharacter(String code) {
         JsonObject characterFound = null;
 
         for (JsonElement element : charactersArray) {
@@ -32,13 +32,9 @@ public class CharacterLoader {
 
             if (jsonCode.equals(code)) {
                 characterFound = character;
-                System.out.println("Se encontró a " + character.get("name").getAsString());
-                System.out.println("Su vida es de " + character.get("life").getAsInt());
                 break;
             }
         }
-
         return characterFound;
     }
-
 }
