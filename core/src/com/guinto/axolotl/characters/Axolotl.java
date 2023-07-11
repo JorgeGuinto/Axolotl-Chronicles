@@ -1,11 +1,14 @@
 package com.guinto.axolotl.characters;
 
 import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Actor;
-import com.guinto.axolotl.assets.Assets;
+import com.google.gson.JsonObject;
+import com.guinto.axolotl.assets.CharacterLoader;
 
+import lombok.Data;
+
+@Data
 public class Axolotl extends Actor {
     // == Dynamic fields ==
     private Vector2 velocity; // Fija? Creo que ni siquiera tiene que ser vector, ya que
@@ -13,8 +16,8 @@ public class Axolotl extends Actor {
 
     // == Classification fields ==
     private final String CODE;
-    private final String NAME = "test";
-    private final String GROUP = "testGroup";
+    private String NAME;
+    private String GROUP = "testGroup";
     private boolean owned = false;
 
     // == Game character fields ==
@@ -38,6 +41,20 @@ public class Axolotl extends Actor {
     // == Constructor ==
     public Axolotl(String CODE) {
         this.CODE = CODE;
+        this.velocity = new Vector2(10, 10);
+
+        JsonObject character = CharacterLoader.createCharacter(this.CODE);
+
+        if (character != null) {
+            this.NAME = character.get("name").getAsString();
+            this.GROUP = character.get("group").getAsString();
+            this.life = character.get("life").getAsInt();
+            this.damage = character.get("damage").getAsInt();
+            this.ability = character.get("ability").getAsInt();
+            this.defense = character.get("defense").getAsInt();
+            this.attackSpeed = character.get("attackSpeed").getAsInt();
+            this.rechargeAbilitySpeed = character.get("rechargeAbilitySpeed").getAsInt();
+        }
         //Get all the fields from the json file with the code
     }
 

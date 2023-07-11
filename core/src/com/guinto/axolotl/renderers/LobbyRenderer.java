@@ -6,6 +6,7 @@ import com.guinto.axolotl.AxolotlChronicles;
 import com.guinto.axolotl.assets.Assets;
 import com.guinto.axolotl.characters.Axolotl;
 
+import java.awt.font.FontRenderContext;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -15,6 +16,7 @@ public class LobbyRenderer {
     private static ArrayList<Axolotl> poppedCharacters;
     public static ArrayList<TextureRegion> regions = new ArrayList<>();
     public static ArrayList<Animation> animations = new ArrayList<>();
+    public float duration = 0;
 
 
     public LobbyRenderer(AxolotlChronicles game) {
@@ -25,11 +27,13 @@ public class LobbyRenderer {
         popCharacters();
 
         for (Axolotl axolotl : poppedCharacters) {
-//            regions.add(Assets.atlas.findRegion(axolotl.CODE));
+            regions.add(Assets.atlas.findRegion(axolotl.getCODE()));
+            animations.add(Assets.getCharacterAnimation(axolotl.getCODE()));
         }
     }
 
-    public void render() {
+    public void render(float delta) {
+        duration += delta;
         renderBackground();
         renderCharacters();
     }
@@ -44,7 +48,13 @@ public class LobbyRenderer {
     private void renderCharacters() {
         game.batch.enableBlending();
         game.batch.begin();
-
+        int i = 0;
+        for (Animation animation : animations) {
+            TextureRegion temp = (TextureRegion) animation.getKeyFrame(duration, true);
+            Axolotl tempAxolotl = poppedCharacters.get(i);
+            game.batch.draw(temp, tempAxolotl.getX(), tempAxolotl.getY());
+            i ++;
+        }
         game.batch.end();
     }
 
@@ -53,7 +63,7 @@ public class LobbyRenderer {
             poppedCharacters = new ArrayList<>(game.user.unlockedCharacters);
             Collections.shuffle(poppedCharacters);
 
-            int characterToShow = Math.min(5, game.user.unlockedCharacters.size());
+            int characterToShow = Math.min(2, game.user.unlockedCharacters.size());
 
             poppedCharacters = new ArrayList<>(poppedCharacters.subList(0, characterToShow));
         }

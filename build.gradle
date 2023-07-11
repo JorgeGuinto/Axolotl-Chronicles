@@ -33,6 +33,7 @@ allprojects {
         ashleyVersion = '1.7.4'
         aiVersion = '1.8.2'
         gdxControllersVersion = '2.2.1'
+        lombokVersion = '1.18.28'
     }
 
     repositories {
@@ -110,6 +111,9 @@ project(":core") {
 
     dependencies {
         api "com.badlogicgames.gdx:gdx:$gdxVersion"
-        
+//        api "org.projectlombok:lombok:$lombokVersion"
+        compileOnly 'org.projectlombok:lombok:1.18.28'
+        annotationProcessor 'org.projectlombok:lombok:1.18.28'
+        implementation group: 'com.google.code.gson', name: 'gson', version: '2.10.1'
     }
 }

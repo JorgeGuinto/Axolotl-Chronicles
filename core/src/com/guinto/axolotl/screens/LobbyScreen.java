@@ -34,8 +34,8 @@ public class LobbyScreen extends ScreenAdapter {
     }
 
     public void temp() {
-        Axolotl axolotl = new Axolotl("ABC123");
-        stage.addActor(axolotl);
+//        Axolotl axolotl = new Axolotl("ABC123");
+//        stage.addActor(axolotl);
     }
     public void setViewport() {
         float targetAspectRatio = 16f / 9f;
@@ -68,18 +68,7 @@ public class LobbyScreen extends ScreenAdapter {
 
         guiCam.update();
         game.batch.setProjectionMatrix(guiCam.combined);
-
-        renderer.render();
-
-//        game.batch.enableBlending();
-//        game.batch.begin();
-//        glyphLayout.setText(Assets.font, "Test Screen");
-//        Assets.font.draw(game.batch, glyphLayout, 160 - glyphLayout.width / 2, 480 - glyphLayout.height);
-//        glyphLayout.setText(Assets.font, textField.getText());
-//        Assets.font.draw(game.batch, glyphLayout, 160 - glyphLayout.width / 2, 480 - 100);
-//        game.batch.draw(Assets.arrow, 320, 0, -64, 64);
-//        game.batch.end();
-//
+        renderer.render(delta);
 //        stage.act(delta);
 //        stage.draw();
     }

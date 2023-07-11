@@ -19,10 +19,18 @@ public class User {
     }
 
     public void createCharacters() {
-        Vector2 velocity = new Vector2(10, 10);
-        Axolotl testOne = new Axolotl(velocity, "001", true, 1, 1, 1, 1, 1, 1);
-        Axolotl testTwo = new Axolotl(velocity, "002", true, 1, 1, 1, 1, 1, 1);
-        Axolotl testThree = new Axolotl(velocity, "003", true, 1, 1, 1, 1, 1, 1);
+//        Vector2 velocity = new Vector2(10, 10);
+//        Axolotl testOne = new Axolotl(velocity, "001walking", true, 1, 1, 1, 1, 1, 1);
+//        Axolotl testTwo = new Axolotl(velocity, "002running", true, 1, 1, 1, 1, 1, 1);
+//        Axolotl testThree = new Axolotl(velocity, "003running", true, 1, 1, 1, 1, 1, 1);
+        Axolotl testOne = new Axolotl("001walking");
+        Axolotl testTwo = new Axolotl("002running");
+        Axolotl testThree = new Axolotl("003running");
+
+        testOne.setPosition(50,50);
+        testTwo.setPosition(500,50);
+        testThree.setPosition(1000,50);
+
         unlockedCharacters.add(testOne);
         unlockedCharacters.add(testTwo);
         unlockedCharacters.add(testThree);
