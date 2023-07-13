@@ -130,12 +130,6 @@ public class Axolotl extends Actor {
                 float distance = this.position.dst(destination);
                 float time = distance / 50;
                 moveTimer = (int) (time * 60);
-//                System.out.println("Sí entró al if del update");
-//                System.out.println("TargetX = " + targetX);
-//                System.out.println("TargetY = " + targetY);
-//                System.out.println("distance = " + distance);
-//                System.out.println("Time = " + time);
-//                System.out.println("MoveTimer = " + moveTimer);
             }
             walk();
         }
