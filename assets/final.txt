@@ -1,221 +1,215 @@
 finjal-0.png
-size: 4031, 4006
+size: 7792, 3088
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
 001AxolotlRunning
   rotate: false
-  xy: 2073, 2183
+  xy: 3496, 1339
   size: 1850, 371
   orig: 1850, 371
   offset: 0, 0
   index: -1
 001AxolotlWalking
   rotate: false
-  xy: 2073, 2556
+  xy: 3496, 1339
   size: 1850, 371
   orig: 1850, 371
   offset: 0, 0
   index: -1
 002FutureKnightRunning
   rotate: false
-  xy: 1382, 3861
-  size: 480, 96
+  xy: 611, 0
+  size: 528, 100
   orig: 528, 100
-  offset: 19, 4
+  offset: 0, 0
   index: -1
 002FutureKnightWalking
   rotate: false
-  xy: 1864, 3861
-  size: 480, 96
+  xy: 611, 0
+  size: 528, 100
   orig: 528, 100
-  offset: 19, 4
+  offset: 0, 0
   index: -1
 004OriginalNinjaRunning
   rotate: false
-  xy: 3724, 127
-  size: 275, 142
+  xy: 0, 0
+  size: 291, 160
   orig: 291, 160
-  offset: 8, 9
+  offset: 0, 0
   index: -1
 004OriginalNinjaWalking
   rotate: false
-  xy: 3724, 271
-  size: 275, 142
+  xy: 0, 0
+  size: 291, 160
   orig: 291, 160
-  offset: 8, 9
+  offset: 0, 0
   index: -1
 005HalfZombieRunning
   rotate: false
-  xy: 3724, 1
-  size: 306, 61
+  xy: 291, 0
+  size: 320, 80
   orig: 320, 80
-  offset: 7, 0
+  offset: 0, 0
   index: -1
 005HalfZombieWalking
   rotate: false
-  xy: 3724, 64
-  size: 306, 61
+  xy: 291, 0
+  size: 320, 80
   orig: 320, 80
-  offset: 7, 0
+  offset: 0, 0
   index: -1
 006BoyRunning
   rotate: false
-  xy: 2249, 1652
-  size: 1481, 529
+  xy: 5987, 576
+  size: 1673, 569
   orig: 1673, 569
-  offset: 124, 31
+  offset: 0, 0
   index: -1
 006BoyWalking
   rotate: false
-  xy: 1, 582
-  size: 2483, 250
+  xy: 5116, 2452
+  size: 2676, 285
   orig: 2676, 285
-  offset: 123, 23
+  offset: 0, 0
   index: -1
 007DinoRunning
   rotate: false
-  xy: 1, 352
-  size: 2575, 228
+  xy: 0, 2737
+  size: 2720, 236
   orig: 2720, 236
-  offset: 22, 6
+  offset: 0, 0
   index: -1
 007DinoWalking
   rotate: false
-  xy: 2476, 938
-  size: 1545, 455
+  xy: 0, 1339
+  size: 1700, 472
   orig: 1700, 472
-  offset: 0, 12
+  offset: 0, 0
   index: -1
 008SantaRunning
   rotate: false
-  xy: 1, 1963
-  size: 2070, 601
+  xy: 2316, 1811
+  size: 2335, 641
   orig: 2335, 641
-  offset: 105, 28
+  offset: 0, 0
   index: -1
 008SantaWalking
   rotate: false
-  xy: 1, 2566
-  size: 2066, 604
+  xy: 4651, 1811
+  size: 2335, 641
   orig: 2335, 641
-  offset: 93, 24
+  offset: 0, 0
   index: -1
 009CowgirlRunning
   rotate: false
-  xy: 2578, 415
-  size: 1452, 521
+  xy: 4384, 576
+  size: 1603, 542
   orig: 1603, 542
-  offset: 71, 2
+  offset: 0, 0
   index: -1
 009CowgirlWalking
   rotate: false
-  xy: 1, 1087
-  size: 2419, 257
+  xy: 2552, 2452
+  size: 2564, 271
   orig: 2564, 271
-  offset: 78, 0
+  offset: 0, 0
+  index: -1
+010KnightRunning
+  rotate: false
+  xy: 1448, 576
+  size: 1468, 707
+  orig: 1468, 707
+  offset: 0, 0
   index: -1
 010KnightWalking
   rotate: false
-  xy: 1382, 3172
-  size: 1387, 687
+  xy: 2916, 576
+  size: 1468, 707
   orig: 1468, 707
-  offset: 34, 6
+  offset: 0, 0
   index: -1
 011JackRunning
   rotate: false
-  xy: 1, 1346
-  size: 2246, 363
+  xy: 0, 1811
+  size: 2316, 382
   orig: 2316, 382
-  offset: 39, 2
+  offset: 0, 0
   index: -1
 011JackWalking
   rotate: false
-  xy: 1, 3172
-  size: 1379, 751
+  xy: 0, 576
+  size: 1448, 763
   orig: 1448, 763
-  offset: 22, 0
+  offset: 0, 0
   index: -1
 012NinjaRunning
   rotate: false
-  xy: 1, 1
-  size: 3721, 349
+  xy: 2720, 2737
+  size: 3730, 351
   orig: 3730, 351
-  offset: 9, 2
-  index: -1
-013NinjaGirlRunning
-  rotate: false
-  xy: 2249, 1395
-  size: 1755, 255
-  orig: 1796, 272
-  offset: 14, 0
-  index: -1
-013NinjaGirlWalking
-  rotate: false
-  xy: 2771, 3490
-  size: 932, 515
-  orig: 940, 520
-  offset: 1, 1
-  index: -1
-014RobotRunning
-  rotate: false
-  xy: 1, 834
-  size: 2473, 251
-  orig: 2552, 278
-  offset: 38, 2
-  index: -1
-014RobotWalking
-  rotate: false
-  xy: 1, 1711
-  size: 2135, 250
-  orig: 2268, 278
-  offset: 72, 2
-  index: -1
-016ZombieRunning
-  rotate: false
-  xy: 2771, 2929
-  size: 1213, 559
-  orig: 1303, 576
-  offset: 49, 0
-  index: -1
-
-finjal-1.png
-size: 2019, 1690
-format: RGBA8888
-filter: Linear,Linear
-repeat: none
-010KnightRunning
-  rotate: false
-  xy: 1, 1
-  size: 1377, 683
-  orig: 1468, 707
-  offset: 49, 11
+  offset: 0, 0
   index: -1
 012NinjaWalking
   rotate: false
-  xy: 1, 1199
-  size: 900, 457
+  xy: 1139, 0
+  size: 908, 458
   orig: 908, 458
-  offset: 3, 0
+  offset: 0, 0
+  index: -1
+013NinjaGirlRunning
+  rotate: false
+  xy: 1700, 1339
+  size: 1796, 272
+  orig: 1796, 272
+  offset: 0, 0
+  index: -1
+013NinjaGirlWalking
+  rotate: false
+  xy: 2047, 0
+  size: 940, 520
+  orig: 940, 520
+  offset: 0, 0
+  index: -1
+014RobotRunning
+  rotate: false
+  xy: 0, 2452
+  size: 2552, 278
+  orig: 2552, 278
+  offset: 0, 0
+  index: -1
+014RobotWalking
+  rotate: false
+  xy: 5346, 1339
+  size: 2268, 278
+  orig: 2268, 278
+  offset: 0, 0
   index: -1
 015CowboyRunning
   rotate: false
-  xy: 1, 686
-  size: 985, 511
+  xy: 2987, 0
+  size: 1018, 536
   orig: 1018, 536
-  offset: 6, 2
+  offset: 0, 0
   index: -1
 015CowboyWalking
   rotate: false
-  xy: 988, 686
-  size: 1030, 502
+  xy: 4005, 0
+  size: 1038, 507
   orig: 1038, 507
-  offset: 3, 0
+  offset: 0, 0
+  index: -1
+016ZombieRunning
+  rotate: false
+  xy: 6118, 0
+  size: 1303, 576
+  orig: 1303, 576
+  offset: 0, 0
   index: -1
 016ZombieWalking
   rotate: false
-  xy: 988, 1190
-  size: 1016, 499
+  xy: 5043, 0
+  size: 1075, 519
   orig: 1075, 519
-  offset: 22, 0
+  offset: 0, 0
   index: -1
