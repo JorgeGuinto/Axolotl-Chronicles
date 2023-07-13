@@ -8,6 +8,7 @@ import com.guinto.axolotl.characters.Axolotl;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Random;
 
 public class LobbyRenderer {
 
@@ -24,6 +25,8 @@ public class LobbyRenderer {
 
     public LobbyRenderer(AxolotlChronicles game) {
         this.game = game;
+        Random rand = new Random();
+        this.characterDelay = rand.nextInt(3, 6);
         loadCharacters();
     }
     public void loadCharacters() {
@@ -55,11 +58,11 @@ public class LobbyRenderer {
         game.batch.begin();
         int i = 0;
         for (Animation animation : animations) {
-
-            if (i < currentCharacterIndex){
+            if (i < currentCharacterIndex) {
                 TextureRegion temp = (TextureRegion) animation.getKeyFrame(duration, true);
                 Axolotl tempAxolotl = poppedCharacters.get(i);
                 game.batch.draw(temp, tempAxolotl.getX(), tempAxolotl.getY(),200,200);
+                tempAxolotl.update(Axolotl.STATE_WALK);
             }
             i ++;
         }

@@ -1,5 +1,6 @@
 package com.guinto.axolotl.characters;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -9,13 +10,18 @@ import com.google.gson.JsonObject;
 import com.guinto.axolotl.assets.Assets;
 import com.guinto.axolotl.assets.CharacterLoader;
 
+import java.util.Random;
+
 import lombok.Data;
 
 @Data
 public class Axolotl extends Actor {
     // == Dynamic fields ==
-    private Vector2 velocity; // Fija? Creo que ni siquiera tiene que ser vector, ya que
-//    public Vector2 acceleration;?
+    private Vector2 position = new Vector2();
+    private Vector2 velocity; // Fija? Creo que ni siquiera tiene que ser vector, ya que es la misma en x y y
+    private Vector2 destination = new Vector2();
+    private int moveTimer = 0;
+    private int waitTimer = 0;
 
     // == Classification fields ==
     private final String CODE;
@@ -36,15 +42,14 @@ public class Axolotl extends Actor {
 
     // == State fields ==
     private final int STATE_STILL = 0;
-    private final int STATE_WALK = 1;
-    private final int STATE_RUN = 2;
-    private final int STATE_ATTACK = 3;
-    private final int STATE_HIT = 4;
-    private int state = 1;
+    public static final int STATE_WALK = 1;
+    public static final int STATE_RUN = 2;
+    public static final int STATE_ATTACK = 3;
+    public static final int STATE_HIT = 4;
+    private int state = 0;
 
     // == Information fields ==
     private JsonObject character;
-
 
     // == Constructor ==
     public Axolotl(String CODE) {
@@ -66,11 +71,31 @@ public class Axolotl extends Actor {
     }
 
     // == Private Methods ==
+    private void walk() {
+        if (waitTimer > 0) {
+            waitTimer--;
+        }
+        if (waitTimer == 0) {
+            float deltaX = (destination.x - position.x) / moveTimer;
+            float deltaY = (destination.y - position.y) / moveTimer;
+            position.x += deltaX;
+            position.y += deltaY;
+            setPosition(position.x, position.y);
+            moveTimer--;
+            if (moveTimer <= 0) {
+                state = STATE_STILL;
+                waitTimer = (int) ((3 + Math.random() * 7) * 60);
+            }
+
+        }
+    }
+
     // == Public Methods ==
     public Animation getCharacterAnimation () {
         // Este método solía estar en Assets pero creo que es mejor que esté aquí
         TextureRegion textureRegion = null;
         switch (state) {
+            case 0:
             case 1:
                 textureRegion = Assets.atlas.findRegion(CODE + "Walking");
                 break;
@@ -93,6 +118,29 @@ public class Axolotl extends Actor {
         return new Animation<>(0.1f, frames);
     }
 
+    public void update(int newState) {
+        if (newState == STATE_WALK) {
+            if (state != STATE_WALK) {
+                state = STATE_WALK;
+                moveTimer = 0;
+                Random rand = new Random();
+                float targetX = rand.nextFloat() * Gdx.graphics.getWidth();
+                float targetY = rand.nextFloat() * Gdx.graphics.getHeight() / 2;
+                destination.set(targetX, targetY);
+                float distance = this.position.dst(destination);
+                float time = distance / 50;
+                moveTimer = (int) (time * 60);
+//                System.out.println("Sí entró al if del update");
+//                System.out.println("TargetX = " + targetX);
+//                System.out.println("TargetY = " + targetY);
+//                System.out.println("distance = " + distance);
+//                System.out.println("Time = " + time);
+//                System.out.println("MoveTimer = " + moveTimer);
+            }
+            walk();
+        }
+    }
+
     // == Override Methods ==
     @Override
     public void draw(Batch batch, float parentAlpha) {
@@ -112,5 +160,11 @@ public class Axolotl extends Actor {
     @Override
     public void act(float delta) {
         super.act(delta);
+    }
+
+    @Override
+    public void setPosition(float x, float y) {
+        this.position.set(x, y);
+        super.setPosition(x, y);
     }
 }

@@ -18,7 +18,6 @@ public class LobbyScreen extends ScreenAdapter {
     private AxolotlChronicles game;
     LobbyRenderer renderer;
     private OrthographicCamera guiCam;
-//    private LobbyRenderer renderer;
     private float duration = 0;
     private Stage stage;
     private Viewport viewport;
