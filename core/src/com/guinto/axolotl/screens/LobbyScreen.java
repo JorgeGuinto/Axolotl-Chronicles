@@ -9,8 +9,6 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.guinto.axolotl.AxolotlChronicles;
-import com.guinto.axolotl.assets.Assets;
-import com.guinto.axolotl.characters.Axolotl;
 import com.guinto.axolotl.renderers.LobbyRenderer;
 
 public class LobbyScreen extends ScreenAdapter {
@@ -22,23 +20,22 @@ public class LobbyScreen extends ScreenAdapter {
     private Stage stage;
     private Viewport viewport;
     private Vector3 touchPoint;
+    private boolean positionsSet = false;
+    private int lobbyPositionX = -2000;
 
     public LobbyScreen(AxolotlChronicles game) {
         this.game = game;
-        renderer = new LobbyRenderer(game);
         setViewport();
         touchPoint = new Vector3();
         stage = new Stage(viewport, game.batch);
-        temp();
+        renderer = new LobbyRenderer(game);
     }
 
-    public void temp() {
-//        Axolotl axolotl = new Axolotl("ABC123");
-//        stage.addActor(axolotl);
-    }
     public void setViewport() {
         float targetAspectRatio = 16f / 9f;
         int screenWidth = Gdx.graphics.getWidth();
+        System.out.println("Ultimo intento = " + Gdx.graphics.getWidth());
+//        System.out.println("EL otro es = " + Gdx.graphics.getDisplayMode.width());
         int screenHeight = Gdx.graphics.getHeight();
         float screenAspectRatio = (float) screenWidth / screenHeight;
         float scaleFactor = screenAspectRatio / targetAspectRatio;
@@ -47,17 +44,46 @@ public class LobbyScreen extends ScreenAdapter {
 
         viewport = new FitViewport(2000, 1125);
         guiCam = new OrthographicCamera();
-        guiCam.position.set(viewportWidth / 2, viewportHeight / 2, 0);
+        guiCam.position.set(lobbyPositionX + viewportWidth / 2, viewportHeight / 2, 0);
     }
 
     public void update () {
-//        if (Gdx.input.justTouched()) {
-//            guiCam.unproject(touchPoint.set(Gdx.input.getX(), Gdx.input.getY(), 0));
-//            if (exitBounds.contains(touchPoint.x, touchPoint.y)) {
-//                Assets.playSound(Assets.clickSound);
-//                game.setScreen(new MainMenuScreen(game));
-//            }
-//        }
+        if (Gdx.input.justTouched()) {
+            updateLobbyPosition();
+        }
+    }
+
+    private void updateLobbyPosition() {
+        float touchX = Gdx.input.getX();
+        float screenWidth = Gdx.graphics.getWidth();
+        float touchPercentageX = touchX / screenWidth;
+        if (touchPercentageX < 0.3f) {
+            switch (lobbyPositionX){
+                case -2000:
+                    lobbyPositionX = 0;
+                    renderer.setOriginalPositions();
+                    renderer.setCurrentCharacterIndex(0);
+                    break;
+                case -4000:
+                    lobbyPositionX = - 2000;
+                    renderer.setOriginalPositions();
+                    renderer.setCurrentCharacterIndex(0);
+                    break;
+            }
+        } else if (touchPercentageX > 0.7f) {
+            switch (lobbyPositionX){
+                case 0:
+                    lobbyPositionX = - 2000;
+                    renderer.setOriginalPositions();
+                    renderer.setCurrentCharacterIndex(0);
+                    break;
+                case -2000:
+                    lobbyPositionX = -4000;
+                    renderer.setOriginalPositions();
+                    renderer.setCurrentCharacterIndex(0);
+                    break;
+            }
+        }
     }
 
     public void draw (float delta) {
@@ -67,9 +93,7 @@ public class LobbyScreen extends ScreenAdapter {
 
         guiCam.update();
         game.batch.setProjectionMatrix(guiCam.combined);
-        renderer.render(delta);
-//        stage.act(delta);
-//        stage.draw();
+        renderer.render(delta, lobbyPositionX);
     }
 
     @Override
@@ -81,8 +105,8 @@ public class LobbyScreen extends ScreenAdapter {
 
     @Override
     public void render (float delta) {
-        draw(delta);
         update();
+        draw(delta);
     }
 
     @Override

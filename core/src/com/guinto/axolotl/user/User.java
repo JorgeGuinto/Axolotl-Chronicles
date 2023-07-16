@@ -19,10 +19,10 @@ public class User {
     }
 
     public void createCharacters() {
-        Axolotl testOne = new Axolotl("001Axolotl");
-        Axolotl testTwo = new Axolotl("002FutureKnight");
-        Axolotl testThree = new Axolotl("004OriginalNinja");
-        Axolotl A1 = new Axolotl("005HalfZombie");
+//        Axolotl testOne = new Axolotl("001Axolotl");
+//        Axolotl testTwo = new Axolotl("002FutureKnight");
+//        Axolotl testThree = new Axolotl("004OriginalNinja");
+//        Axolotl A1 = new Axolotl("005HalfZombie");
         Axolotl A2 = new Axolotl("006Boy");
         Axolotl A3 = new Axolotl("007Dino");
         Axolotl A4 = new Axolotl("008Santa");
@@ -34,28 +34,12 @@ public class User {
         Axolotl A10 = new Axolotl("014Robot");
         Axolotl A11 = new Axolotl("015Cowboy");
         Axolotl A12 = new Axolotl("016Zombie");
+        Axolotl A13 = new Axolotl("017Zombie");
 
-        testOne.setPosition(50,50);
-        testTwo.setPosition(250,50);
-        testThree.setPosition(450,50);
-        A1.setPosition(650, 50);
-        A2.setPosition(850, 50);
-        A3.setPosition(1050, 50);
-        A4.setPosition(50, 250);
-        A5.setPosition(250,250);
-        A6.setPosition(450,250);
-        A7.setPosition(650, 250);
-        A8.setPosition(850, 250);
-        A9.setPosition(1050, 250);
-        A10.setPosition(50, 550);
-        A11.setPosition(250,550);
-        A12.setPosition(450,550);
-
-
-        unlockedCharacters.add(testOne);
-        unlockedCharacters.add(testTwo);
-        unlockedCharacters.add(testThree);
-        unlockedCharacters.add(A1);
+//        unlockedCharacters.add(testOne);
+//        unlockedCharacters.add(testTwo);
+//        unlockedCharacters.add(testThree);
+//        unlockedCharacters.add(A1);
         unlockedCharacters.add(A2);
         unlockedCharacters.add(A3);
         unlockedCharacters.add(A4);
@@ -67,5 +51,6 @@ public class User {
         unlockedCharacters.add(A10);
         unlockedCharacters.add(A11);
         unlockedCharacters.add(A12);
+        unlockedCharacters.add(A13);
     }
 }

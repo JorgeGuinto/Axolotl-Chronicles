@@ -1,215 +1,313 @@
-finjal-0.png
-size: 7792, 3088
+final-0.png
+size: 4026, 2603
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
 001AxolotlRunning
   rotate: false
-  xy: 3496, 1339
+  xy: 940, 497
   size: 1850, 371
   orig: 1850, 371
   offset: 0, 0
   index: -1
 001AxolotlWalking
   rotate: false
-  xy: 3496, 1339
+  xy: 940, 497
   size: 1850, 371
   orig: 1850, 371
   offset: 0, 0
   index: -1
 002FutureKnightRunning
   rotate: false
-  xy: 611, 0
+  xy: 0, 2446
   size: 528, 100
   orig: 528, 100
   offset: 0, 0
   index: -1
 002FutureKnightWalking
   rotate: false
-  xy: 611, 0
+  xy: 0, 2446
   size: 528, 100
   orig: 528, 100
   offset: 0, 0
   index: -1
 004OriginalNinjaRunning
   rotate: false
-  xy: 0, 0
+  xy: 2350, 1220
   size: 291, 160
   orig: 291, 160
   offset: 0, 0
   index: -1
 004OriginalNinjaWalking
   rotate: false
-  xy: 0, 0
+  xy: 2350, 1220
   size: 291, 160
   orig: 291, 160
   offset: 0, 0
   index: -1
 005HalfZombieRunning
   rotate: false
-  xy: 291, 0
+  xy: 2350, 1140
   size: 320, 80
   orig: 320, 80
   offset: 0, 0
   index: -1
 005HalfZombieWalking
   rotate: false
-  xy: 291, 0
+  xy: 2350, 1140
   size: 320, 80
   orig: 320, 80
   offset: 0, 0
   index: -1
+006BoyIdle
+  rotate: false
+  xy: 2183, 1512
+  size: 836, 285
+  orig: 836, 285
+  offset: 0, 0
+  index: -1
 006BoyRunning
   rotate: false
-  xy: 5987, 576
-  size: 1673, 569
-  orig: 1673, 569
+  xy: 2038, 2154
+  size: 836, 285
+  orig: 836, 285
   offset: 0, 0
   index: -1
 006BoyWalking
   rotate: false
-  xy: 5116, 2452
-  size: 2676, 285
-  orig: 2676, 285
+  xy: 2641, 1365
+  size: 1338, 142
+  orig: 1338, 142
+  offset: 0, 0
+  index: -1
+007DinoIdle
+  rotate: false
+  xy: 0, 1266
+  size: 850, 236
+  orig: 850, 236
   offset: 0, 0
   index: -1
 007DinoRunning
   rotate: false
-  xy: 0, 2737
-  size: 2720, 236
-  orig: 2720, 236
+  xy: 2641, 1247
+  size: 1360, 118
+  orig: 1360, 118
   offset: 0, 0
   index: -1
 007DinoWalking
   rotate: false
-  xy: 0, 1339
-  size: 1700, 472
-  orig: 1700, 472
+  xy: 1449, 1276
+  size: 850, 236
+  orig: 850, 236
+  offset: 0, 0
+  index: -1
+008SantaIdle
+  rotate: false
+  xy: 940, 0
+  size: 1868, 321
+  orig: 1868, 321
   offset: 0, 0
   index: -1
 008SantaRunning
   rotate: false
-  xy: 2316, 1811
-  size: 2335, 641
-  orig: 2335, 641
+  xy: 2808, 0
+  size: 1168, 321
+  orig: 1168, 321
   offset: 0, 0
   index: -1
 008SantaWalking
   rotate: false
-  xy: 4651, 1811
-  size: 2335, 641
-  orig: 2335, 641
+  xy: 2805, 321
+  size: 1168, 321
+  orig: 1168, 321
+  offset: 0, 0
+  index: -1
+009CowgirlIdle
+  rotate: false
+  xy: 908, 1140
+  size: 1442, 136
+  orig: 1442, 136
   offset: 0, 0
   index: -1
 009CowgirlRunning
   rotate: false
-  xy: 4384, 576
-  size: 1603, 542
-  orig: 1603, 542
+  xy: 3019, 1507
+  size: 801, 271
+  orig: 801, 271
   offset: 0, 0
   index: -1
 009CowgirlWalking
   rotate: false
-  xy: 2552, 2452
-  size: 2564, 271
-  orig: 2564, 271
+  xy: 2704, 972
+  size: 1282, 136
+  orig: 1282, 136
+  offset: 0, 0
+  index: -1
+010KnightIdle
+  rotate: false
+  xy: 1304, 1889
+  size: 734, 354
+  orig: 734, 354
   offset: 0, 0
   index: -1
 010KnightRunning
   rotate: false
-  xy: 1448, 576
-  size: 1468, 707
-  orig: 1468, 707
+  xy: 1304, 2243
+  size: 734, 354
+  orig: 734, 354
   offset: 0, 0
   index: -1
 010KnightWalking
   rotate: false
-  xy: 2916, 576
-  size: 1468, 707
-  orig: 1468, 707
+  xy: 1449, 1512
+  size: 734, 354
+  orig: 734, 354
+  offset: 0, 0
+  index: -1
+011JackIdle
+  rotate: false
+  xy: 580, 2007
+  size: 724, 382
+  orig: 724, 382
   offset: 0, 0
   index: -1
 011JackRunning
   rotate: false
-  xy: 0, 1811
-  size: 2316, 382
-  orig: 2316, 382
+  xy: 2790, 642
+  size: 1158, 191
+  orig: 1158, 191
   offset: 0, 0
   index: -1
 011JackWalking
   rotate: false
-  xy: 0, 576
-  size: 1448, 763
-  orig: 1448, 763
+  xy: 725, 1507
+  size: 724, 382
+  orig: 724, 382
+  offset: 0, 0
+  index: -1
+012NinjaIdle
+  rotate: false
+  xy: 0, 2007
+  size: 580, 439
+  orig: 580, 439
   offset: 0, 0
   index: -1
 012NinjaRunning
   rotate: false
-  xy: 2720, 2737
-  size: 3730, 351
-  orig: 3730, 351
+  xy: 940, 321
+  size: 1865, 176
+  orig: 1865, 176
   offset: 0, 0
   index: -1
 012NinjaWalking
   rotate: false
-  xy: 1139, 0
+  xy: 0, 808
   size: 908, 458
   orig: 908, 458
   offset: 0, 0
   index: -1
+013NinjaGirlIdle
+  rotate: false
+  xy: 0, 1507
+  size: 725, 500
+  orig: 725, 500
+  offset: 0, 0
+  index: -1
 013NinjaGirlRunning
   rotate: false
-  xy: 1700, 1339
+  xy: 908, 868
   size: 1796, 272
   orig: 1796, 272
   offset: 0, 0
   index: -1
 013NinjaGirlWalking
   rotate: false
-  xy: 2047, 0
+  xy: 0, 0
   size: 940, 520
   orig: 940, 520
   offset: 0, 0
   index: -1
+014RobotIdle
+  rotate: false
+  xy: 2689, 1797
+  size: 709, 278
+  orig: 709, 278
+  offset: 0, 0
+  index: -1
 014RobotRunning
   rotate: false
-  xy: 0, 2452
-  size: 2552, 278
-  orig: 2552, 278
+  xy: 2704, 1108
+  size: 1276, 139
+  orig: 1276, 139
   offset: 0, 0
   index: -1
 014RobotWalking
   rotate: false
-  xy: 5346, 1339
-  size: 2268, 278
-  orig: 2268, 278
+  xy: 2790, 833
+  size: 1134, 139
+  orig: 1134, 139
+  offset: 0, 0
+  index: -1
+015CowboyIdle
+  rotate: false
+  xy: 3627, 2292
+  size: 399, 243
+  orig: 399, 243
   offset: 0, 0
   index: -1
 015CowboyRunning
   rotate: false
-  xy: 2987, 0
-  size: 1018, 536
-  orig: 1018, 536
+  xy: 2874, 2075
+  size: 509, 268
+  orig: 509, 268
   offset: 0, 0
   index: -1
 015CowboyWalking
   rotate: false
-  xy: 4005, 0
-  size: 1038, 507
-  orig: 1038, 507
+  xy: 3398, 2038
+  size: 519, 254
+  orig: 519, 254
+  offset: 0, 0
+  index: -1
+016ZombieIdle
+  rotate: false
+  xy: 2874, 2343
+  size: 753, 260
+  orig: 753, 260
   offset: 0, 0
   index: -1
 016ZombieRunning
   rotate: false
-  xy: 6118, 0
-  size: 1303, 576
-  orig: 1303, 576
+  xy: 3398, 1778
+  size: 538, 260
+  orig: 538, 260
   offset: 0, 0
   index: -1
 016ZombieWalking
   rotate: false
-  xy: 5043, 0
-  size: 1075, 519
-  orig: 1075, 519
+  xy: 3398, 1778
+  size: 538, 260
+  orig: 538, 260
+  offset: 0, 0
+  index: -1
+017ZombieIdle
+  rotate: false
+  xy: 0, 520
+  size: 912, 288
+  orig: 912, 288
+  offset: 0, 0
+  index: -1
+017ZombieRunning
+  rotate: false
+  xy: 2038, 1866
+  size: 651, 288
+  orig: 651, 288
+  offset: 0, 0
+  index: -1
+017ZombieWalking
+  rotate: false
+  xy: 2038, 1866
+  size: 651, 288
+  orig: 651, 288
   offset: 0, 0
   index: -1

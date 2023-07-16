@@ -1,7 +1,9 @@
 package com.guinto.axolotl.renderers;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Vector2;
 import com.guinto.axolotl.AxolotlChronicles;
 import com.guinto.axolotl.assets.Assets;
 import com.guinto.axolotl.characters.Axolotl;
@@ -10,6 +12,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
 
+import lombok.Getter;
+import lombok.Setter;
+
 public class LobbyRenderer {
 
     private AxolotlChronicles game;
@@ -17,16 +22,16 @@ public class LobbyRenderer {
     public static ArrayList<TextureRegion> regions = new ArrayList<>();
     public static ArrayList<Animation> animations = new ArrayList<>();
     public float duration = 0;
+    @Setter
     private int currentCharacterIndex = 0;
     private float timeSinceLastCharacter = 0;
-    private float characterDelay = 5;
+    private float characterDelay;
     int charactersToShow = 7;
 
 
     public LobbyRenderer(AxolotlChronicles game) {
         this.game = game;
-        Random rand = new Random();
-        this.characterDelay = rand.nextInt(3, 6);
+        this.characterDelay = 5;
         loadCharacters();
     }
     public void loadCharacters() {
@@ -36,23 +41,25 @@ public class LobbyRenderer {
         }
     }
 
-    public void render(float delta) {
+    public void render(float delta, float lobbyPositionX) {
         duration += delta;
-        renderBackground();
+        renderBackground(lobbyPositionX);
         renderCharacters(delta);
     }
 
-    private void renderBackground() {
+    private void renderBackground(float lobbyPositionX) {
         game.batch.disableBlending();
         game.batch.begin();
-        game.batch.draw(Assets.lobbyBackgroundRegion, 0, 0);
+        game.batch.draw(Assets.lobbyBackgroundRegion, lobbyPositionX, 0);
         game.batch.end();
     }
 
     private void renderCharacters(float delta) {
+        Random rand = new Random();
         if (timeSinceLastCharacter > characterDelay && currentCharacterIndex < charactersToShow){
             currentCharacterIndex++;
             timeSinceLastCharacter = 0;
+            characterDelay = rand.nextInt(3, 5);
         }
         game.batch.enableBlending();
         game.batch.begin();
@@ -61,8 +68,10 @@ public class LobbyRenderer {
             if (i < currentCharacterIndex) {
                 TextureRegion temp = (TextureRegion) animation.getKeyFrame(duration, true);
                 Axolotl tempAxolotl = poppedCharacters.get(i);
+//                tempAxolotl.draw(game.batch, delta);
+//                System.out.println(Gdx.graphics.getWidth());
                 if (tempAxolotl.getDestination().x < tempAxolotl.getPosition().x) {
-                    game.batch.draw(temp, tempAxolotl.getX(), tempAxolotl.getY(),-200,200);
+                    game.batch.draw(temp, tempAxolotl.getX() + 200, tempAxolotl.getY(),-200,200);
                 } else {
                     game.batch.draw(temp, tempAxolotl.getX(), tempAxolotl.getY(), 200, 200);
                 }
@@ -83,6 +92,24 @@ public class LobbyRenderer {
             charactersToShow = Math.min(charactersToShow, game.user.unlockedCharacters.size());
 
             poppedCharacters = new ArrayList<>(poppedCharacters.subList(0, charactersToShow));
+            setOriginalPositions();
         }
     }
+
+    public void setOriginalPositions() {
+        Random random = new Random();
+        for (Axolotl axolotl : poppedCharacters) {
+            if (random.nextFloat() < 0.85) {
+                if (random.nextBoolean()) {
+                    axolotl.setPosition(-200, random.nextInt(700));
+                } else {
+                    axolotl.setPosition(2000 , random.nextInt(700));
+                }
+            } else {
+                axolotl.setPosition(random.nextInt(Gdx.graphics.getWidth()), -200);
+            }
+            axolotl.setDestination(new Vector2(axolotl.getPosition().x + 1, axolotl.getPosition().y + 1));
+        }
+    }
+
 }

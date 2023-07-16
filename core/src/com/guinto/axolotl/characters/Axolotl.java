@@ -11,17 +11,23 @@ import com.guinto.axolotl.assets.Assets;
 import com.guinto.axolotl.assets.CharacterLoader;
 
 import java.util.Random;
+import java.util.jar.JarOutputStream;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 @Data
 public class Axolotl extends Actor {
     // == Dynamic fields ==
     private Vector2 position = new Vector2();
     private Vector2 velocity; // Fija? Creo que ni siquiera tiene que ser vector, ya que es la misma en x y y
+    @Getter
+    @Setter
     private Vector2 destination = new Vector2();
     private int moveTimer = 0;
     private int waitTimer = 0;
+    private int duration = 0;
 
     // == Classification fields ==
     private final String CODE;
@@ -72,19 +78,18 @@ public class Axolotl extends Actor {
 
     // == Private Methods ==
     private void walk() {
+        Random rand = new Random();
         if (waitTimer > 0) {
             waitTimer--;
         }
         if (waitTimer == 0) {
-            float deltaX = (destination.x - position.x) / moveTimer;
-            float deltaY = (destination.y - position.y) / moveTimer;
-            position.x += deltaX;
-            position.y += deltaY;
+            position.x += (destination.x - position.x) / moveTimer;;
+            position.y += (destination.y - position.y) / moveTimer;
             setPosition(position.x, position.y);
             moveTimer--;
             if (moveTimer <= 0) {
                 state = STATE_STILL;
-                waitTimer = (int) ((3 + Math.random() * 7) * 60);
+                waitTimer = rand.nextInt(25, 35) * 60;
             }
 
         }
@@ -92,10 +97,11 @@ public class Axolotl extends Actor {
 
     // == Public Methods ==
     public Animation getCharacterAnimation () {
-        // Este método solía estar en Assets pero creo que es mejor que esté aquí
         TextureRegion textureRegion = null;
         switch (state) {
             case 0:
+//                textureRegion = Assets.atlas.findRegion(CODE + "Idle");
+//                break;
             case 1:
                 textureRegion = Assets.atlas.findRegion(CODE + "Walking");
                 break;
@@ -126,7 +132,8 @@ public class Axolotl extends Actor {
                 Random rand = new Random();
                 float targetX = rand.nextFloat() * Gdx.graphics.getWidth();
                 float targetY = rand.nextFloat() * Gdx.graphics.getHeight() / 2;
-                destination.set(targetX, targetY);
+                destination.set(rand.nextFloat() * 2000, rand.nextFloat() * 600);
+//                destination.set(targetX, targetY);
                 float distance = this.position.dst(destination);
                 float time = distance / 50;
                 moveTimer = (int) (time * 60);
@@ -138,6 +145,13 @@ public class Axolotl extends Actor {
     // == Override Methods ==
     @Override
     public void draw(Batch batch, float parentAlpha) {
+
+//        if (destination.x < position.x) {
+//            batch.draw((TextureRegion) getCharacterAnimation().getKeyFrame(duration, true), getX() + 200, getY(), -200, 200);
+//        } else {
+//            batch.draw((TextureRegion) getCharacterAnimation().getKeyFrame(duration, true), getX(), getY(), 200, 200);
+//        }
+//        duration += parentAlpha;
 //        TextureRegion keyFrame = Assets.bobFall.getKeyFrame(stateTime, Animation.ANIMATION_LOOPING);
 //
 //        TextureRegion robertRegion = new TextureRegion(Assets.items, 64, 128, 32, 32);

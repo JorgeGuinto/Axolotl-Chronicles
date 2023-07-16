@@ -34,16 +34,12 @@ public class Assets {
     }
 
     public static void loadLobby () {
-        lobbyBackground = loadTexture("data/testHome.png");
-        lobbyBackgroundRegion = new TextureRegion(lobbyBackground, 0, 0,2000,1200);
-
-        character = loadTexture("data/character.png");
-        characterAnimation = new Animation(0.3f, new TextureRegion(character,0, 0, 370, 370), new TextureRegion(character,370, 0, 370, 370), new TextureRegion(character,740, 0, 370, 370), new TextureRegion(character,1110, 0, 370, 370), new TextureRegion(character,1480, 0, 370, 370));
+        lobbyBackground = loadTexture("data/lobby.png");
+        lobbyBackgroundRegion = new TextureRegion(lobbyBackground, 0, 0,6000,1200);
     }
 
     // == Dispose Methods ==
     public void disposeLobby() {
         lobbyBackground.dispose();
-        character.dispose();
     }
 }
