@@ -34,7 +34,6 @@ public class LobbyScreen extends ScreenAdapter {
     public void setViewport() {
         float targetAspectRatio = 16f / 9f;
         int screenWidth = Gdx.graphics.getWidth();
-        System.out.println("Ultimo intento = " + Gdx.graphics.getWidth());
 //        System.out.println("EL otro es = " + Gdx.graphics.getDisplayMode.width());
         int screenHeight = Gdx.graphics.getHeight();
         float screenAspectRatio = (float) screenWidth / screenHeight;

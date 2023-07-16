@@ -21,10 +21,10 @@ public class AxolotlChronicles extends Game {
 	@Override
 	public void create () {
 		CharacterLoader.loadFile();
+		Assets.load();
 
 		batch = new SpriteBatch();
 		user = new User("Jorge Test", "MX001");
-		Assets.load();
 
 		setScreen(new LobbyScreen(this));
 	}

@@ -26,7 +26,7 @@ public class LobbyRenderer {
     private int currentCharacterIndex = 0;
     private float timeSinceLastCharacter = 0;
     private float characterDelay;
-    int charactersToShow = 7;
+    int charactersToShow = 5;
 
 
     public LobbyRenderer(AxolotlChronicles game) {
@@ -66,10 +66,9 @@ public class LobbyRenderer {
         int i = 0;
         for (Animation animation : animations) {
             if (i < currentCharacterIndex) {
-                TextureRegion temp = (TextureRegion) animation.getKeyFrame(duration, true);
+//                TextureRegion temp = (TextureRegion) animation.getKeyFrame(duration, true);
                 Axolotl tempAxolotl = poppedCharacters.get(i);
-//                tempAxolotl.draw(game.batch, delta);
-//                System.out.println(Gdx.graphics.getWidth());
+                TextureRegion temp = tempAxolotl.getKeyFrame(duration, true);
                 if (tempAxolotl.getDestination().x < tempAxolotl.getPosition().x) {
                     game.batch.draw(temp, tempAxolotl.getX() + 200, tempAxolotl.getY(),-200,200);
                 } else {

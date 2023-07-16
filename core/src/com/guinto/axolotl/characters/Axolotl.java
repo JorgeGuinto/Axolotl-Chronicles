@@ -56,11 +56,13 @@ public class Axolotl extends Actor {
 
     // == Information fields ==
     private JsonObject character;
+    private AxolotlTexture axolotlTexture;
 
     // == Constructor ==
     public Axolotl(String CODE) {
         this.CODE = CODE;
         this.velocity = new Vector2(10, 10);
+        this.axolotlTexture = new AxolotlTexture(CODE);
 
         character = CharacterLoader.findCharacter(this.CODE);
 
@@ -81,8 +83,7 @@ public class Axolotl extends Actor {
         Random rand = new Random();
         if (waitTimer > 0) {
             waitTimer--;
-        }
-        if (waitTimer == 0) {
+        } else {
             position.x += (destination.x - position.x) / moveTimer;;
             position.y += (destination.y - position.y) / moveTimer;
             setPosition(position.x, position.y);
@@ -90,6 +91,7 @@ public class Axolotl extends Actor {
             if (moveTimer <= 0) {
                 state = STATE_STILL;
                 waitTimer = rand.nextInt(25, 35) * 60;
+                System.out.println("en teoría deberíamos de estar en state = " + state);
             }
 
         }
@@ -126,14 +128,13 @@ public class Axolotl extends Actor {
 
     public void update(int newState) {
         if (newState == STATE_WALK) {
-            if (state != STATE_WALK) {
+            if (state != STATE_WALK && waitTimer <= 0) {
                 state = STATE_WALK;
                 moveTimer = 0;
                 Random rand = new Random();
-                float targetX = rand.nextFloat() * Gdx.graphics.getWidth();
-                float targetY = rand.nextFloat() * Gdx.graphics.getHeight() / 2;
-                destination.set(rand.nextFloat() * 2000, rand.nextFloat() * 600);
-//                destination.set(targetX, targetY);
+                destination.set(rand.nextFloat() * (2000 - 200), rand.nextFloat() * 600);
+//                (2000 - 200) es para que no se salga de la pantalla
+//                El 2000 es el ancho de la imagen del fondo porque Gdx.graphics.getWidth(); no está funcionando me regeresa un número 640 pero no es t odo el ancho
                 float distance = this.position.dst(destination);
                 float time = distance / 50;
                 moveTimer = (int) (time * 60);
@@ -142,30 +143,12 @@ public class Axolotl extends Actor {
         }
     }
 
-    // == Override Methods ==
-    @Override
-    public void draw(Batch batch, float parentAlpha) {
-
-//        if (destination.x < position.x) {
-//            batch.draw((TextureRegion) getCharacterAnimation().getKeyFrame(duration, true), getX() + 200, getY(), -200, 200);
-//        } else {
-//            batch.draw((TextureRegion) getCharacterAnimation().getKeyFrame(duration, true), getX(), getY(), 200, 200);
-//        }
-//        duration += parentAlpha;
-//        TextureRegion keyFrame = Assets.bobFall.getKeyFrame(stateTime, Animation.ANIMATION_LOOPING);
-//
-//        TextureRegion robertRegion = new TextureRegion(Assets.items, 64, 128, 32, 32);
-//        batch.draw(robertRegion, 150, 200);
-//
-//        float side = velocity.x < 0 ? -1 : 1;
-//
-//        if (side < 0) {
-//            batch.draw(keyFrame, position.x + 0.5f, position.y - 0.5f);
-//        } else {
-//            batch.draw(keyFrame, position.x - 0.5f, position.y - 0.5f);
-//        }
+    public TextureRegion getKeyFrame(float duration, boolean looping) {
+        return axolotlTexture.getKeyFrame(duration, looping, state);
     }
-    @Override
+
+    // == Override Methods ==
+        @Override
     public void act(float delta) {
         super.act(delta);
     }
