@@ -8,21 +8,21 @@ import com.guinto.axolotl.assets.CharacterLoader;
 
 public class AxolotlTexture {
     private final String CODE;
-    private TextureRegion walking = null;
-    private TextureRegion running = null;
-    private TextureRegion idle = null;
-    private TextureRegion attack = null;
-    private TextureRegion ability = null;
-    private TextureRegion hit = null;
-    private TextureRegion dying = null;
+    private TextureRegion walking;
+    private TextureRegion running;
+    private TextureRegion idle;
+    private TextureRegion attack;
+    private TextureRegion ability;
+    private TextureRegion hit;
+    private TextureRegion dying;
 
-    private Animation walkingAnimation = null;
-    private Animation runningAnimation = null;
-    private Animation idleAnimation = null;
-    private Animation attackAnimation = null;
-    private Animation abilityAnimation = null;
-    private Animation hitAnimation = null;
-    private Animation dyingAnimation = null;
+    private Animation walkingAnimation;
+    private Animation runningAnimation;
+    private Animation idleAnimation;
+    private Animation attackAnimation;
+    private Animation abilityAnimation;
+    private Animation hitAnimation;
+    private Animation dyingAnimation;
 
     public AxolotlTexture(String code) {
         this.CODE = code;
@@ -54,7 +54,6 @@ public class AxolotlTexture {
                 frames[index++] = textureRegion1;
             }
         }
-
         return new Animation<>(0.1f, frames);
     }
 

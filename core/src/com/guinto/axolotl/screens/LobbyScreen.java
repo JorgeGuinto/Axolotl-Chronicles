@@ -34,7 +34,6 @@ public class LobbyScreen extends ScreenAdapter {
     public void setViewport() {
         float targetAspectRatio = 16f / 9f;
         int screenWidth = Gdx.graphics.getWidth();
-//        System.out.println("EL otro es = " + Gdx.graphics.getDisplayMode.width());
         int screenHeight = Gdx.graphics.getHeight();
         float screenAspectRatio = (float) screenWidth / screenHeight;
         float scaleFactor = screenAspectRatio / targetAspectRatio;
@@ -60,28 +59,22 @@ public class LobbyScreen extends ScreenAdapter {
             switch (lobbyPositionX){
                 case -2000:
                     lobbyPositionX = 0;
-                    renderer.setOriginalPositions();
-                    renderer.setCurrentCharacterIndex(0);
                     break;
                 case -4000:
                     lobbyPositionX = - 2000;
-                    renderer.setOriginalPositions();
-                    renderer.setCurrentCharacterIndex(0);
                     break;
             }
+            renderer.popCharacters();
         } else if (touchPercentageX > 0.7f) {
             switch (lobbyPositionX){
                 case 0:
                     lobbyPositionX = - 2000;
-                    renderer.setOriginalPositions();
-                    renderer.setCurrentCharacterIndex(0);
                     break;
                 case -2000:
                     lobbyPositionX = -4000;
-                    renderer.setOriginalPositions();
-                    renderer.setCurrentCharacterIndex(0);
                     break;
             }
+            renderer.popCharacters();
         }
     }
 
