@@ -31,7 +31,13 @@ public class AxolotlTextures {
 
 
     private static TextureRegion loadTexture(String code, String state) {
-        return Assets.atlas.findRegion(code + state);
+        switch (state) {
+            case "Walking":
+                return Assets.walkingAtlas.findRegion(code + state);
+            case "Idle":
+                return Assets.idleAtlas.findRegion(code + state);
+        }
+        return null;
     }
 
     private static Animation<TextureRegion> getCharacterAnimation(TextureRegion textureRegion, String state, String code) {

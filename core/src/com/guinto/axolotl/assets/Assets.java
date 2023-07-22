@@ -35,7 +35,7 @@ public class Assets {
     // == Load Methods ==
 
     public static void load() {
-        atlas = new TextureAtlas(Gdx.files.internal("final.txt"));
+//        atlas = new TextureAtlas(Gdx.files.internal("final.txt"));
         loadLobby();
     }
     public static Texture loadTexture (String file) {
@@ -43,8 +43,8 @@ public class Assets {
     }
 
     public static void loadLobby () {
-        idleAtlas = new TextureAtlas(Gdx.files.internal("charactersAtlas/idleAtlas25.txt"));
-        walkingAtlas = new TextureAtlas(Gdx.files.internal("charactersAtlas/idleAtlas.txt"));
+        idleAtlas = new TextureAtlas(Gdx.files.internal("charactersAtlas/idleAtlas.txt"));
+        walkingAtlas = new TextureAtlas(Gdx.files.internal("charactersAtlas/walkingAtlas.txt"));
 
         lobbyBackground = loadTexture("data/forest.png");
 //        lobbyBackgroundRegion = new TextureRegion(lobbyBackground, 0, 0,6000,1200);

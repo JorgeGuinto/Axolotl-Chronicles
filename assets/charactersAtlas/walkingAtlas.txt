@@ -1,0 +1,89 @@
+walkingAtlas.png
+size: 7167, 7167
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+006BoyWalking
+  rotate: false
+  xy: 0, 1098
+  size: 5352, 569
+  orig: 5352, 569
+  offset: 0, 0
+  index: -1
+007DinoWalking
+  rotate: false
+  xy: 0, 2014
+  size: 3400, 944
+  orig: 3400, 944
+  offset: 0, 0
+  index: -1
+008SantaWalking
+  rotate: false
+  xy: 0, 4180
+  size: 4670, 1282
+  orig: 4670, 1282
+  offset: 0, 0
+  index: -1
+009CowgirlWalking
+  rotate: false
+  xy: 0, 0
+  size: 5128, 542
+  orig: 5128, 542
+  offset: 0, 0
+  index: -1
+010KnightWalking
+  rotate: false
+  xy: 0, 5462
+  size: 2935, 1414
+  orig: 2935, 1414
+  offset: 0, 0
+  index: -1
+011JackWalking
+  rotate: false
+  xy: 2935, 5462
+  size: 2895, 1526
+  orig: 2895, 1526
+  offset: 0, 0
+  index: -1
+012NinjaWalking
+  rotate: false
+  xy: 5352, 1098
+  size: 1815, 916
+  orig: 1815, 916
+  offset: 0, 0
+  index: -1
+013NinjaGirlWalking
+  rotate: false
+  xy: 2150, 3028
+  size: 1880, 1040
+  orig: 1880, 1040
+  offset: 0, 0
+  index: -1
+014RobotWalking
+  rotate: false
+  xy: 0, 542
+  size: 4536, 556
+  orig: 4536, 556
+  offset: 0, 0
+  index: -1
+015CowboyWalking
+  rotate: false
+  xy: 3400, 2014
+  size: 2075, 1014
+  orig: 2075, 1014
+  offset: 0, 0
+  index: -1
+016ZombieWalking
+  rotate: false
+  xy: 0, 3028
+  size: 2150, 1038
+  orig: 2150, 1038
+  offset: 0, 0
+  index: -1
+017ZombieWalking
+  rotate: false
+  xy: 4030, 3028
+  size: 2605, 1152
+  orig: 2605, 1152
+  offset: 0, 0
+  index: -1

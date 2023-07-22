@@ -4,7 +4,6 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.google.gson.JsonObject;
-import com.guinto.axolotl.assets.AxolotlTexture;
 import com.guinto.axolotl.assets.AxolotlTextures;
 import com.guinto.axolotl.assets.InfoLoader;
 
@@ -49,7 +48,6 @@ public class Axolotl extends Actor {
 
     // == Information fields ==
     private JsonObject character;
-    private AxolotlTexture axolotlTexture;
 
     public Axolotl(String CODE) {
         this.CODE = CODE;
