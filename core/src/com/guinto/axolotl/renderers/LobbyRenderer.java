@@ -108,7 +108,7 @@ public class LobbyRenderer {
             } else {
                 axolotl.setPosition(random.nextInt(Gdx.graphics.getWidth()), -200);
             }
-            axolotl.setDestination(new Vector2(axolotl.getPosition().x + 1, axolotl.getPosition().y + 1));
+            axolotl.setDestination(new Vector2(axolotl.getX() + 1, axolotl.getY() + 1));
             axolotl.setWaitTimer(0);
         }
     }

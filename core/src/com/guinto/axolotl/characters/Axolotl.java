@@ -19,7 +19,6 @@ import lombok.Setter;
 @Data
 public class Axolotl extends Actor {
     // == Dynamic fields ==
-    private Vector2 position = new Vector2();
     @Getter
     @Setter
     private Vector2 destination = new Vector2();
@@ -75,10 +74,10 @@ public class Axolotl extends Actor {
                 destination.set(rand.nextFloat() * (2000 - 200), rand.nextFloat() * 300);
 //                (2000 - 200) es para que no se salga de la pantalla
 //                El 2000 es el ancho de la imagen del fondo porque Gdx.graphics.getWidth(); no está funcionando me regeresa un número 640 pero no es t odo el ancho
-                float distance = this.position.dst(destination);
+                float distance = new Vector2(getX(), getY()).dst(destination);
                 float time = distance / 70;
                 moveTimer = (int) (time * 60);
-                facing = position.x < destination.x;
+                facing = getX() < destination.x;
             }
             walk();
         }
@@ -89,20 +88,16 @@ public class Axolotl extends Actor {
         if (waitTimer > 0) {
             waitTimer--;
         } else {
-            position.x += (destination.x - position.x) / moveTimer;;
-            position.y += (destination.y - position.y) / moveTimer;
-            setPosition(position.x, position.y);
+            setPosition(getX() + (destination.x - getX()) / moveTimer, getY() + (destination.y - getY()) / moveTimer);
             moveTimer--;
             if (moveTimer <= 0) {
                 state = STATE_STILL;
                 waitTimer = rand.nextInt(20, 30) * 60;
             }
-
         }
     }
 
     public TextureRegion getKeyFrame(float duration, boolean looping) {
-//        return axolotlTexture.getKeyFrame(duration, looping, state);
         return AxolotlTextures.getKeyFrame(duration, looping, state, this);
     }
 
@@ -121,7 +116,6 @@ public class Axolotl extends Actor {
 
     @Override
     public void setPosition(float x, float y) {
-        this.position.set(x, y);
         super.setPosition(x, y);
     }
 }
