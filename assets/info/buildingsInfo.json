@@ -1,0 +1,34 @@
+{
+  "buildings":[
+    {
+      "code": "lobbyL",
+      "name": "buildingLeft.png",
+      "x": 0,
+      "y": 150,
+      "imageW": 348,
+      "imageH": 244,
+      "width": 1000,
+      "height": 701
+    },
+    {
+      "code": "lobbyR",
+      "name": "buildingRight.png",
+      "x": 850,
+      "y": 100,
+      "imageW": 920,
+      "imageH": 569,
+      "width": 1500,
+      "height": 928
+    },
+    {
+      "code": "lobbyC",
+      "name": "buildingCenter.png",
+      "x": 350,
+      "y": 200,
+      "imageW": 900,
+      "imageH": 597,
+      "width": 1500,
+      "height": 995
+    }
+  ]
+}

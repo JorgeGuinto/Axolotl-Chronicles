@@ -35,6 +35,7 @@ public class LobbyRenderer {
     public void render(float delta, float lobbyPositionX) {
         duration += delta;
         renderBackground(lobbyPositionX);
+        renderBuildings((int) lobbyPositionX);
         renderCharacters(delta);
     }
 
@@ -42,6 +43,23 @@ public class LobbyRenderer {
         game.batch.disableBlending();
         game.batch.begin();
         game.batch.draw(Assets.lobbyBackgroundRegion, lobbyPositionX, 0);
+        game.batch.end();
+    }
+
+    private void renderBuildings(int lobbyPositionX) {
+        game.batch.enableBlending();
+        game.batch.begin();
+        switch (lobbyPositionX) {
+            case 0:
+                game.batch.draw(Assets.buildingLRegion, 0, 150, 1000, 701);
+                break;
+            case -2000:
+                game.batch.draw(Assets.buildingCRegion, 350, 200, 1500, 928);
+                break;
+            case -4000:
+                game.batch.draw(Assets.buildingRRegion, 850, 100, 1500, 995);
+                break;
+        }
         game.batch.end();
     }
 
@@ -86,9 +104,9 @@ public class LobbyRenderer {
         for (Axolotl axolotl : poppedCharacters) {
             if (random.nextFloat() < 0.85) {
                 if (random.nextBoolean()) {
-                    axolotl.setPosition(-400, random.nextInt(700));
+                    axolotl.setPosition(-400, random.nextInt(300));
                 } else {
-                    axolotl.setPosition(2010 , random.nextInt(700));
+                    axolotl.setPosition(2010 , random.nextInt(300));
                 }
             } else {
                 axolotl.setPosition(random.nextInt(Gdx.graphics.getWidth()), -200);
@@ -97,5 +115,4 @@ public class LobbyRenderer {
             axolotl.setWaitTimer(0);
         }
     }
-
 }

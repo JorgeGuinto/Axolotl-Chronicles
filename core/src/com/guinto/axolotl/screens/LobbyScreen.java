@@ -56,6 +56,7 @@ public class LobbyScreen extends ScreenAdapter {
         float screenWidth = Gdx.graphics.getWidth();
         float touchPercentageX = touchX / screenWidth;
         if (touchPercentageX < 0.3f) {
+            if (lobbyPositionX != 0) renderer.popCharacters();
             switch (lobbyPositionX){
                 case -2000:
                     lobbyPositionX = 0;
@@ -64,8 +65,8 @@ public class LobbyScreen extends ScreenAdapter {
                     lobbyPositionX = - 2000;
                     break;
             }
-            renderer.popCharacters();
         } else if (touchPercentageX > 0.7f) {
+            if (lobbyPositionX != -4000) renderer.popCharacters();
             switch (lobbyPositionX){
                 case 0:
                     lobbyPositionX = - 2000;
@@ -74,7 +75,6 @@ public class LobbyScreen extends ScreenAdapter {
                     lobbyPositionX = -4000;
                     break;
             }
-            renderer.popCharacters();
         }
     }
 

@@ -1,22 +1,21 @@
 package com.guinto.axolotl.characters;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.g2d.Animation;
-import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.google.gson.JsonObject;
-import com.guinto.axolotl.assets.Assets;
-import com.guinto.axolotl.assets.CharacterLoader;
+import com.guinto.axolotl.assets.AxolotlTexture;
+import com.guinto.axolotl.assets.AxolotlTextures;
+import com.guinto.axolotl.assets.InfoLoader;
 
 import java.util.Random;
-import java.util.jar.JarOutputStream;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
+@EqualsAndHashCode(callSuper = true)
 @Data
 public class Axolotl extends Actor {
     // == Dynamic fields ==
@@ -54,9 +53,9 @@ public class Axolotl extends Actor {
 
     public Axolotl(String CODE) {
         this.CODE = CODE;
-        this.axolotlTexture = new AxolotlTexture(CODE);
+//        this.axolotlTexture = new AxolotlTexture(CODE);
 
-        character = CharacterLoader.findCharacter(this.CODE);
+        character = InfoLoader.findCharacter(this.CODE);
 
         if (character != null) {
             this.NAME = character.get("name").getAsString();
@@ -76,7 +75,7 @@ public class Axolotl extends Actor {
                 state = STATE_WALK;
                 moveTimer = 0;
                 Random rand = new Random();
-                destination.set(rand.nextFloat() * (2000 - 200), rand.nextFloat() * 600);
+                destination.set(rand.nextFloat() * (2000 - 200), rand.nextFloat() * 300);
 //                (2000 - 200) es para que no se salga de la pantalla
 //                El 2000 es el ancho de la imagen del fondo porque Gdx.graphics.getWidth(); no está funcionando me regeresa un número 640 pero no es t odo el ancho
                 float distance = this.position.dst(destination);
@@ -106,7 +105,8 @@ public class Axolotl extends Actor {
     }
 
     public TextureRegion getKeyFrame(float duration, boolean looping) {
-        return axolotlTexture.getKeyFrame(duration, looping, state);
+//        return axolotlTexture.getKeyFrame(duration, looping, state);
+        return AxolotlTextures.getKeyFrame(duration, looping, state, this);
     }
 
     @Override

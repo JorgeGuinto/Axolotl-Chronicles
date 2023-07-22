@@ -1,0 +1,89 @@
+idleAtlas.png
+size: 7472, 6652
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+006BoyIdle
+  rotate: false
+  xy: 0, 3676
+  size: 3345, 1138
+  orig: 3345, 1138
+  offset: 0, 0
+  index: -1
+007DinoIdle
+  rotate: false
+  xy: 3010, 1112
+  size: 3400, 944
+  orig: 3400, 944
+  offset: 0, 0
+  index: -1
+008SantaIdle
+  rotate: false
+  xy: 0, 5370
+  size: 7472, 1282
+  orig: 7472, 1282
+  offset: 0, 0
+  index: -1
+009CowgirlIdle
+  rotate: false
+  xy: 0, 4828
+  size: 5769, 542
+  orig: 5769, 542
+  offset: 0, 0
+  index: -1
+010KnightIdle
+  rotate: false
+  xy: 0, 2150
+  size: 2935, 1414
+  orig: 2935, 1414
+  offset: 0, 0
+  index: -1
+011JackIdle
+  rotate: false
+  xy: 2935, 2150
+  size: 2895, 1526
+  orig: 2895, 1526
+  offset: 0, 0
+  index: -1
+012NinjaIdle
+  rotate: false
+  xy: 0, 0
+  size: 1160, 878
+  orig: 1160, 878
+  offset: 0, 0
+  index: -1
+013NinjaGirlIdle
+  rotate: false
+  xy: 1160, 0
+  size: 1450, 1000
+  orig: 1450, 1000
+  offset: 0, 0
+  index: -1
+014RobotIdle
+  rotate: false
+  xy: 4205, 0
+  size: 2835, 1112
+  orig: 2835, 1112
+  offset: 0, 0
+  index: -1
+015CowboyIdle
+  rotate: false
+  xy: 2610, 0
+  size: 1595, 972
+  orig: 1595, 972
+  offset: 0, 0
+  index: -1
+016ZombieIdle
+  rotate: false
+  xy: 0, 1112
+  size: 3010, 1038
+  orig: 3010, 1038
+  offset: 0, 0
+  index: -1
+017ZombieIdle
+  rotate: false
+  xy: 3345, 3676
+  size: 3647, 1152
+  orig: 3647, 1152
+  offset: 0, 0
+  index: -1
