@@ -1,5 +1,6 @@
 package com.guinto.axolotl.characters;
 
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Actor;
@@ -24,7 +25,7 @@ public class Axolotl extends Actor {
     private Vector2 destination = new Vector2();
     @Setter
     private int waitTimer = 0;
-    private int moveTimer = 0, duration = 0;
+    private int moveTimer = 0;
 
     // == Classification fields ==
     private final String CODE;
@@ -51,8 +52,6 @@ public class Axolotl extends Actor {
 
     public Axolotl(String CODE) {
         this.CODE = CODE;
-//        this.axolotlTexture = new AxolotlTexture(CODE);
-
         character = InfoLoader.findCharacter(this.CODE);
 
         if (character != null) {
@@ -105,6 +104,14 @@ public class Axolotl extends Actor {
     public TextureRegion getKeyFrame(float duration, boolean looping) {
 //        return axolotlTexture.getKeyFrame(duration, looping, state);
         return AxolotlTextures.getKeyFrame(duration, looping, state, this);
+    }
+
+    @Override
+    public void draw(Batch batch, float parentAlpha) {
+        TextureRegion temp = getKeyFrame(parentAlpha, true);
+        int width = facing ? 200 : -200;
+        batch.draw(temp, getX() + 200, getY(), width,200);
+        update(Axolotl.STATE_WALK);
     }
 
     @Override

@@ -75,10 +75,7 @@ public class LobbyRenderer {
         int i = 0;
         for (Axolotl axolotl : poppedCharacters) {
             if (i < currentCharacterIndex) {
-                TextureRegion temp = axolotl.getKeyFrame(duration, true);
-                int width = axolotl.facing ? 200 : -200;
-                game.batch.draw(temp, axolotl.getX() + 200, axolotl.getY(),width,200);
-                axolotl.update(Axolotl.STATE_WALK);
+                axolotl.draw(game.batch, duration);
             }
             i ++;
         }

@@ -61,5 +61,7 @@ public class Assets {
     // == Dispose Methods ==
     public void disposeLobby() {
         lobbyBackground.dispose();
+        idleAtlas.dispose();
+        walkingAtlas.dispose();
     }
 }
