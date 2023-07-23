@@ -1,18 +1,16 @@
 package com.guinto.axolotl.renderers;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.g2d.Animation;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.guinto.axolotl.AxolotlChronicles;
 import com.guinto.axolotl.assets.Assets;
+import com.guinto.axolotl.assets.Building;
 import com.guinto.axolotl.characters.Axolotl;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
 
-import lombok.Getter;
 import lombok.Setter;
 
 public class LobbyRenderer {
@@ -25,6 +23,9 @@ public class LobbyRenderer {
     private float timeSinceLastCharacter = 0;
     private float characterDelay = 5;
     int charactersToShow = 3;
+    private Building lBuilding = new Building("bLobbyL");
+    private Building cBuilding = new Building("bLobbyC");
+    private Building rBuilding = new Building("bLobbyR");
 
 
     public LobbyRenderer(AxolotlChronicles game) {
@@ -51,13 +52,13 @@ public class LobbyRenderer {
         game.batch.begin();
         switch (lobbyPositionX) {
             case 0:
-                game.batch.draw(Assets.buildingLRegion, 0, 150, 1000, 701);
+                lBuilding.draw(game.batch);
                 break;
             case -2000:
-                game.batch.draw(Assets.buildingCRegion, 350, 200, 1500, 928);
+                cBuilding.draw(game.batch);
                 break;
             case -4000:
-                game.batch.draw(Assets.buildingRRegion, 850, 100, 1500, 995);
+                rBuilding.draw(game.batch);
                 break;
         }
         game.batch.end();
@@ -68,7 +69,8 @@ public class LobbyRenderer {
         if (timeSinceLastCharacter > characterDelay && currentCharacterIndex < charactersToShow){
             currentCharacterIndex++;
             timeSinceLastCharacter = 0;
-            characterDelay = rand.nextInt(5, 10);
+            characterDelay = rand.nextInt(5) + 4;
+//            characterDelay = 7;
         }
         game.batch.enableBlending();
         game.batch.begin();
@@ -112,4 +114,20 @@ public class LobbyRenderer {
             axolotl.setWaitTimer(0);
         }
     }
+
+    public boolean buildingTouch(int lobbyPositionX, float x, float y){
+        switch (lobbyPositionX) {
+            case 0:
+                if (lBuilding.getRectangle().contains(x, y)) return true;
+                break;
+            case -2000:
+                if (cBuilding.getRectangle().contains(x, y)) return true;
+                break;
+            case -4000:
+                if (rBuilding.getRectangle().contains(x, y)) return true;
+                break;
+        }
+        return false;
+    }
+
 }

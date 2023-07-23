@@ -19,17 +19,13 @@ import lombok.Setter;
 @Data
 public class Axolotl extends Actor {
     // == Dynamic fields ==
-    @Getter
-    @Setter
     private Vector2 destination = new Vector2();
-    @Setter
     private int waitTimer = 0;
     private int moveTimer = 0;
 
     // == Classification fields ==
     private final String CODE;
     private String NAME, GROUP;
-    private boolean owned = false;
 
     // == Game character fields ==
     private int life, ability, defense, damage, attackSpeed, rechargeAbilitySpeed;
@@ -92,7 +88,7 @@ public class Axolotl extends Actor {
             moveTimer--;
             if (moveTimer <= 0) {
                 state = STATE_STILL;
-                waitTimer = rand.nextInt(20, 30) * 60;
+                waitTimer = (rand.nextInt(10) + 20) * 60;
             }
         }
     }
