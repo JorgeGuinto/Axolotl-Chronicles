@@ -21,7 +21,7 @@ public class LobbyRenderer {
     @Setter
     private int currentCharacterIndex = 0;
     private float timeSinceLastCharacter = 0;
-    private float characterDelay = 5;
+    private float characterDelay = 10;
     int charactersToShow = 3;
     private Building lBuilding = new Building("bLobbyL");
     private Building cBuilding = new Building("bLobbyC");
@@ -70,7 +70,6 @@ public class LobbyRenderer {
             currentCharacterIndex++;
             timeSinceLastCharacter = 0;
             characterDelay = rand.nextInt(5) + 4;
-//            characterDelay = 7;
         }
         game.batch.enableBlending();
         game.batch.begin();

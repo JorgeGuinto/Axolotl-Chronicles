@@ -14,7 +14,7 @@ public class Building {
     private String code;
     private TextureRegion buildingRegion;
     private Rectangle rectangle;
-//    private Polygon polygon;
+    private Polygon polygon;
     private int x;
     private int y;
     private int width;
@@ -34,14 +34,14 @@ public class Building {
             this.height = building.get("height").getAsInt();
             rectangle = new Rectangle(x, y, width, height);
 
-//            JsonArray verticesArray = building.getAsJsonArray("vertices");
-//            float[] vertices = new float[verticesArray.size()];
-//            for (int i = 0; i < verticesArray.size(); i++) {
-//                vertices[i] = verticesArray.get(i).getAsFloat();
-//            }
+            JsonArray verticesArray = building.getAsJsonArray("vertices");
+            float[] vertices = new float[verticesArray.size()];
+            for (int i = 0; i < verticesArray.size(); i++) {
+                vertices[i] = verticesArray.get(i).getAsFloat();
+            }
 
-//            polygon = new Polygon(vertices);
-//            polygon.setPosition(0,0);
+            polygon = new Polygon(vertices);
+            polygon.setPosition(0,0);
 
             loadRegion();
         }
