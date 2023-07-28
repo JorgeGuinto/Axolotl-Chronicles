@@ -2,16 +2,10 @@ package com.guinto.axolotl.assets;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
-import com.badlogic.gdx.utils.JsonReader;
-import com.badlogic.gdx.utils.JsonValue;
-import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-
-import java.io.FileReader;
-import java.io.IOException;
 
 public class InfoLoader {
 
@@ -24,12 +18,6 @@ public class InfoLoader {
     }
 
     public static void loadCharactersFile() {
-//        try (FileReader reader = new FileReader(filePath)) {
-//            JsonObject jsonObject = JsonParser.parseReader(reader).getAsJsonObject();
-//            charactersArray = jsonObject.getAsJsonArray("characters");
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
         FileHandle fileHandle = Gdx.files.internal("info/charactersTest.json");
 
         if (fileHandle.exists()) {
@@ -40,15 +28,6 @@ public class InfoLoader {
     }
 
     public static void loadBuildingsFile() {
-//        String filePath = "assets/info/buildingsInfo.json";
-//        try (FileReader reader = new FileReader(filePath)) {
-//            JsonObject jsonObject = JsonParser.parseReader(reader).getAsJsonObject();
-//            buildingsArray = jsonObject.getAsJsonArray("buildings");
-//
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-
         FileHandle fileHandle = Gdx.files.internal("info/buildingsInfo.json");
 
         if (fileHandle.exists()) {

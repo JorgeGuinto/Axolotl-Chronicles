@@ -61,15 +61,13 @@ public class Axolotl extends Actor {
         }
     }
 
-    public void update(int newState) {
+    public void update(int newState, float cameraX) {
         if (newState == STATE_WALK) {
             if (state != STATE_WALK && waitTimer <= 0) {
                 state = STATE_WALK;
                 moveTimer = 0;
                 Random rand = new Random();
-                destination.set(rand.nextFloat() * (2000 - 200), rand.nextFloat() * 300);
-//                (2000 - 200) es para que no se salga de la pantalla
-//                El 2000 es el ancho de la imagen del fondo porque Gdx.graphics.getWidth(); no está funcionando me regeresa un número 640 pero no es t odo el ancho
+                destination.set((cameraX-1000) + (rand.nextFloat() * (2000 - 400)), rand.nextFloat() * 300);
                 float distance = new Vector2(getX(), getY()).dst(destination);
                 float time = distance / 70;
                 moveTimer = (int) (time * 60);
@@ -97,12 +95,11 @@ public class Axolotl extends Actor {
         return AxolotlTextures.getKeyFrame(duration, looping, state, this);
     }
 
-    @Override
-    public void draw(Batch batch, float parentAlpha) {
+    public void draw(Batch batch, float parentAlpha, float cameraX) {
         TextureRegion temp = getKeyFrame(parentAlpha, true);
         int width = facing ? 200 : -200;
         batch.draw(temp, getX() + 200, getY(), width,200);
-        update(Axolotl.STATE_WALK);
+        update(Axolotl.STATE_WALK, cameraX);
     }
 
     @Override

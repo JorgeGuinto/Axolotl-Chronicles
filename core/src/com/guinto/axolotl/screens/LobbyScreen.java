@@ -3,11 +3,8 @@ package com.guinto.axolotl.screens;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.utils.viewport.FitViewport;
-import com.badlogic.gdx.utils.viewport.Viewport;
 import com.guinto.axolotl.AxolotlChronicles;
 import com.guinto.axolotl.renderers.LobbyRenderer;
 
@@ -17,8 +14,6 @@ public class LobbyScreen extends ScreenAdapter {
     public LobbyRenderer renderer;
     private Stage stage;
     private Vector3 touchPoint;
-    private int lobbyPositionX = -2000;
-
     public LobbyScreen(AxolotlChronicles game) {
         this.game = game;
         touchPoint = new Vector3();
@@ -32,8 +27,7 @@ public class LobbyScreen extends ScreenAdapter {
 
         if (Gdx.input.justTouched()) {
             if (!updateLobbyPosition()) {
-                if (renderer.buildingTouch(lobbyPositionX, touchPoint.x, touchPoint.y)) {
-                    System.out.println("sí se tocó un edificio");
+                if (renderer.buildingTouch(touchPoint.x, touchPoint.y)) {
                     System.out.println(game.guiCam.position);
                 }
             }
@@ -46,26 +40,14 @@ public class LobbyScreen extends ScreenAdapter {
         float touchPercentageX = touchX / screenWidth;
 
         if (touchPercentageX < 0.2f) {
-            if (lobbyPositionX != 0) renderer.popCharacters();
-            switch (lobbyPositionX) {
-                case -2000:
-//                    game.guiCam.position.set(-1000, game.viewport.getCamera().viewportHeight/ 2 , 0);
-                    System.out.println(game.guiCam.position);
-                    lobbyPositionX = 0;
-                    return true;
-                case -4000:
-                    lobbyPositionX = -2000;
-                    return true;
+            if (game.guiCam.position.x > 1000) {
+                game.guiCam.position.add(-2000, 0, 0);
+                renderer.popCharacters();
             }
         } else if (touchPercentageX > 0.8f) {
-            if (lobbyPositionX != -4000) renderer.popCharacters();
-            switch (lobbyPositionX) {
-                case 0:
-                    lobbyPositionX = -2000;
-                    return true;
-                case -2000:
-                    lobbyPositionX = -4000;
-                    return true;
+            if (game.guiCam.position.x < 5000) {
+                game.guiCam.position.add(2000, 0, 0);
+                renderer.popCharacters();
             }
         }
         return false;
@@ -78,7 +60,7 @@ public class LobbyScreen extends ScreenAdapter {
 
         game.guiCam.update();
         game.batch.setProjectionMatrix(game.guiCam.combined);
-        renderer.render(delta, lobbyPositionX);
+        renderer.render(delta);
     }
 
     @Override
@@ -98,8 +80,10 @@ public class LobbyScreen extends ScreenAdapter {
     }
 
     @Override
-    public void resize(int width, int height) {
-        game.viewport.update(width, height, true);
-        game.guiCam.setToOrtho(false, game.viewport.getWorldWidth(), game.viewport.getWorldHeight());
+    public void resize(int width, int height) {game.viewport.update(width, height, true);}
+
+    @Override
+    public void dispose() {
+        super.dispose();
     }
 }

@@ -1,6 +1,5 @@
 package com.guinto.axolotl.renderers;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Vector2;
 import com.guinto.axolotl.AxolotlChronicles;
 import com.guinto.axolotl.assets.Assets;
@@ -21,7 +20,7 @@ public class LobbyRenderer {
     @Setter
     private int currentCharacterIndex = 0;
     private float timeSinceLastCharacter = 0;
-    private float characterDelay = 10;
+    private float characterDelay = 5;
     int charactersToShow = 3;
     private Building lBuilding = new Building("bLobbyL");
     private Building cBuilding = new Building("bLobbyC");
@@ -33,31 +32,31 @@ public class LobbyRenderer {
         popCharacters();
     }
 
-    public void render(float delta, float lobbyPositionX) {
+    public void render(float delta) {
         duration += delta;
-        renderBackground(lobbyPositionX);
-        renderBuildings((int) lobbyPositionX);
+        renderBackground();
+        renderBuildings();
         renderCharacters(delta);
     }
 
-    private void renderBackground(float lobbyPositionX) {
+    private void renderBackground() {
         game.batch.disableBlending();
         game.batch.begin();
-        game.batch.draw(Assets.lobbyBackgroundRegion, lobbyPositionX, 0);
+        game.batch.draw(Assets.lobbyBackgroundRegion, 0, 0);
         game.batch.end();
     }
 
-    private void renderBuildings(int lobbyPositionX) {
+    private void renderBuildings() {
         game.batch.enableBlending();
         game.batch.begin();
-        switch (lobbyPositionX) {
-            case 0:
+        switch ((int) game.guiCam.position.x) {
+            case 1000:
                 lBuilding.draw(game.batch);
                 break;
-            case -2000:
+            case 3000:
                 cBuilding.draw(game.batch);
                 break;
-            case -4000:
+            case 5000:
                 rBuilding.draw(game.batch);
                 break;
         }
@@ -76,7 +75,7 @@ public class LobbyRenderer {
         int i = 0;
         for (Axolotl axolotl : poppedCharacters) {
             if (i < currentCharacterIndex) {
-                axolotl.draw(game.batch, duration);
+                axolotl.draw(game.batch, duration, game.guiCam.position.x);
             }
             i ++;
         }
@@ -88,9 +87,7 @@ public class LobbyRenderer {
         if (game.user.unlockedCharacters != null && game.user.unlockedCharacters.size() > 0) {
             poppedCharacters = new ArrayList<>(game.user.unlockedCharacters);
             Collections.shuffle(poppedCharacters);
-
             charactersToShow = Math.min(charactersToShow, game.user.unlockedCharacters.size());
-
             poppedCharacters = new ArrayList<>(poppedCharacters.subList(0, charactersToShow));
             setOriginalPositions();
         }
@@ -102,27 +99,27 @@ public class LobbyRenderer {
         for (Axolotl axolotl : poppedCharacters) {
             if (random.nextFloat() < 0.85) {
                 if (random.nextBoolean()) {
-                    axolotl.setPosition(-400, random.nextInt(300));
+                    axolotl.setPosition(game.guiCam.position.x - 1400, random.nextInt(300));
                 } else {
-                    axolotl.setPosition(2010 , random.nextInt(300));
+                    axolotl.setPosition(game.guiCam.position.x + 1010 , random.nextInt(300));
                 }
             } else {
-                axolotl.setPosition(random.nextInt(Gdx.graphics.getWidth()), -200);
+                axolotl.setPosition((game.guiCam.position.x - 1000) + random.nextInt(2000), -200);
             }
             axolotl.setDestination(new Vector2(axolotl.getX() + 1, axolotl.getY() + 1));
             axolotl.setWaitTimer(0);
         }
     }
 
-    public boolean buildingTouch(int lobbyPositionX, float x, float y){
-        switch (lobbyPositionX) {
-            case 0:
+    public boolean buildingTouch(float x, float y){
+        switch ((int) game.guiCam.position.x) {
+            case 1000:
                 if (lBuilding.getRectangle().contains(x, y)) return true;
                 break;
-            case -2000:
+            case 3000:
                 if (cBuilding.getRectangle().contains(x, y)) return true;
                 break;
-            case -4000:
+            case 5000:
                 if (rBuilding.getRectangle().contains(x, y)) return true;
                 break;
         }
