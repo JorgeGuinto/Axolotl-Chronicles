@@ -26,6 +26,7 @@ public class AxolotlTextures {
             idle = loadTexture(code, "Idle");
             idleAnimations.put(code, getCharacterAnimation(idle, "I", code));
             walkingAnimations.put(code, getCharacterAnimation(walking, "W", code));
+
         }
     }
 

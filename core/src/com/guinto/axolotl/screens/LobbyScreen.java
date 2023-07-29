@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.guinto.axolotl.AxolotlChronicles;
+import com.guinto.axolotl.assets.Assets;
 import com.guinto.axolotl.renderers.LobbyRenderer;
 
 public class LobbyScreen extends ScreenAdapter {
@@ -28,7 +29,17 @@ public class LobbyScreen extends ScreenAdapter {
         if (Gdx.input.justTouched()) {
             if (!updateLobbyPosition()) {
                 if (renderer.buildingTouch(touchPoint.x, touchPoint.y)) {
-                    System.out.println(game.guiCam.position);
+                    switch ((int) game.guiCam.position.x) {
+                        case 1000:
+                            System.out.println("Nos vamos al lado izquierdo");
+                            break;
+                        case 3000:
+                            System.out.println("Nos vamos al centro");
+                            break;
+                        case 5000:
+                            System.out.println("Nos vamos al lado derecho");
+                            break;
+                    }
                 }
             }
         }
@@ -84,6 +95,8 @@ public class LobbyScreen extends ScreenAdapter {
 
     @Override
     public void dispose() {
+        Assets.disposeLobby();
+
         super.dispose();
     }
 }
