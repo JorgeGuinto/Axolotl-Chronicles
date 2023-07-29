@@ -15,11 +15,13 @@ public class LobbyScreen extends ScreenAdapter {
     public LobbyRenderer renderer;
     private Stage stage;
     private Vector3 touchPoint;
-    public LobbyScreen(AxolotlChronicles game) {
+    public LobbyScreen(AxolotlChronicles game, float x) {
+        Assets.loadLobby();
         this.game = game;
         touchPoint = new Vector3();
         stage = new Stage(game.viewport, game.batch);
         renderer = new LobbyRenderer(game);
+        game.guiCam.position.set(x, game.guiCam.position.y, 0);
     }
 
     public void update() {
@@ -31,13 +33,12 @@ public class LobbyScreen extends ScreenAdapter {
                 if (renderer.buildingTouch(touchPoint.x, touchPoint.y)) {
                     switch ((int) game.guiCam.position.x) {
                         case 1000:
-                            System.out.println("Nos vamos al lado izquierdo");
+                            game.setScreen(new InvocationScreen(game));
                             break;
                         case 3000:
-                            System.out.println("Nos vamos al centro");
                             break;
                         case 5000:
-                            System.out.println("Nos vamos al lado derecho");
+                            game.setScreen(new ForgeScreen(game));
                             break;
                     }
                 }
@@ -63,7 +64,6 @@ public class LobbyScreen extends ScreenAdapter {
         }
         return false;
     }
-
     public void draw (float delta) {
         GL20 gl = Gdx.gl;
         gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
@@ -73,30 +73,22 @@ public class LobbyScreen extends ScreenAdapter {
         game.batch.setProjectionMatrix(game.guiCam.combined);
         renderer.render(delta);
     }
-
     @Override
     public void show() {
         Gdx.input.setInputProcessor(stage);
         game.viewport.update(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), true);
     }
-
     @Override
     public void render (float delta) {
         update();
         draw(delta);
     }
-
-    @Override
-    public void hide () {
-    }
-
     @Override
     public void resize(int width, int height) {game.viewport.update(width, height, true);}
-
     @Override
     public void dispose() {
-        Assets.disposeLobby();
-
+        boolean mid = game.guiCam.position.x == 3000;
+        Assets.disposeLobby(mid);
         super.dispose();
     }
 }

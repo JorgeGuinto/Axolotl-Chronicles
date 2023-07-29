@@ -2,63 +2,60 @@ package com.guinto.axolotl.assets;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.google.gson.JsonObject;
-import com.guinto.axolotl.characters.Axolotl;
 
-import org.w3c.dom.Text;
-
-import java.util.ArrayList;
+import lombok.Getter;
+import lombok.Setter;
 
 public class Assets {
 
     public static TextureAtlas idleAtlas;
     public static TextureAtlas walkingAtlas;
     public static TextureAtlas sceneObjectsAtlas;
-
-
-    // == Lobby assets ==
-    public static Texture lobbyBackground;
-    public static TextureRegion lobbyBackgroundRegion;
-
-    public static Texture buildingLeft;
-    public static Texture buildingRight;
-    public static Texture buildingCenter;
-    public static TextureRegion buildingLRegion;
-    public static TextureRegion buildingRRegion;
-    public static TextureRegion buildingCRegion;
-
-
-
+    public static Texture background;
+    public static TextureRegion backgroundRegion;
+    @Setter
+    private static boolean leaveLobby = true;
 
     // == Load Methods ==
     public static Texture loadTexture (String file) {
         return new Texture(Gdx.files.internal(file));
     }
 
-    public static void loadLobby () {
-
+    public static void loadStart() {
         idleAtlas = new TextureAtlas(Gdx.files.internal("atlas/idleAtlas.txt"));
         walkingAtlas = new TextureAtlas(Gdx.files.internal("atlas/walkingAtlas.txt"));
         sceneObjectsAtlas = new TextureAtlas(Gdx.files.internal("atlas/sceneObjects.txt"));
+    }
 
-        lobbyBackground = loadTexture("data/forest.png");
-        lobbyBackgroundRegion = new TextureRegion(lobbyBackground, 0, 0,6000,1200);
-//        buildingLeft = loadTexture("data/BuildingLeft.png");
-//        buildingRight = loadTexture("data/BuildingRight.png");
-//        buildingCenter = loadTexture("data/BuildingCenter.png");
-//        buildingLRegion = new TextureRegion(buildingLeft, 0, 0, 348, 244);
-//        buildingCRegion = new TextureRegion(buildingCenter, 0, 0, 920, 569);
-//        buildingRRegion = new TextureRegion(buildingRight, 0, 0, 900, 597);
+    public static void loadLobby () {
+        background = loadTexture("data/forest.png");
+        backgroundRegion = new TextureRegion(background, 0, 0,6000,1200);
+    }
 
+    public static void loadForge(){
+        background = loadTexture("data/blacksmith.jpg");
+        backgroundRegion = new TextureRegion(background, 0, 0,2000,1225);
+    }
+    public  static void loadInvocation() {
+        background = loadTexture("data/blacksmith2.jpg");
+        backgroundRegion = new TextureRegion(background, 0, 0,2000,1200);
     }
 
     // == Dispose Methods ==
-    public static void disposeLobby() {
-        lobbyBackground.dispose();
-        idleAtlas.dispose();
-        walkingAtlas.dispose();
+    public static void disposeLobby(boolean deleteAll) {
+        if (deleteAll) {
+            idleAtlas.dispose();
+            walkingAtlas.dispose();
+            sceneObjectsAtlas.dispose();
+        }
+        background.dispose();
+    }
+    public static void disposeForge() {
+        background.dispose();
+    }
+    public static void disposeInvocation() {
+        background.dispose();
     }
 }

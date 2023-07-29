@@ -8,18 +8,18 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.guinto.axolotl.AxolotlChronicles;
 import com.guinto.axolotl.assets.Assets;
 import com.guinto.axolotl.renderers.ForgeRenderer;
-import com.guinto.axolotl.renderers.LobbyRenderer;
+import com.guinto.axolotl.renderers.InvocationRenderer;
 
-public class ForgeScreen extends ScreenAdapter {
+public class InvocationScreen extends ScreenAdapter {
     private AxolotlChronicles game;
-    public ForgeRenderer renderer;
+    public InvocationRenderer renderer;
     private Stage stage;
     private Vector3 touchPoint;
-    public ForgeScreen(AxolotlChronicles game) {
+    public InvocationScreen(AxolotlChronicles game) {
         this.game = game;
         touchPoint = new Vector3();
         stage = new Stage(game.viewport, game.batch);
-        renderer = new ForgeRenderer(game);
+        renderer = new InvocationRenderer(game);
 
     }
 
@@ -27,8 +27,8 @@ public class ForgeScreen extends ScreenAdapter {
         touchPoint.set(Gdx.input.getX(), Gdx.input.getY(), 0);
         game.guiCam.unproject(touchPoint);
         if (Gdx.input.justTouched()) {
-            if (renderer.door.contains(touchPoint.x, touchPoint.y)) {
-                game.setScreen(new LobbyScreen(game, 5000));
+            if (renderer.door.contains(touchPoint.x, touchPoint.y)){
+                game.setScreen(new LobbyScreen(game, 1000));
             }
         }
     }
@@ -60,7 +60,7 @@ public class ForgeScreen extends ScreenAdapter {
 
     @Override
     public void dispose() {
-        Assets.disposeForge();
+        Assets.disposeInvocation();
         super.dispose();
     }
 }

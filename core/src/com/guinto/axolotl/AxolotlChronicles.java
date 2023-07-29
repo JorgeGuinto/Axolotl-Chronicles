@@ -19,14 +19,14 @@ public class AxolotlChronicles extends Game {
 	@Override
 	public void create () {
 		setViewport();
-		Assets.loadLobby();
+		Assets.loadStart();
 		InfoLoader.loadFile();
 
 		batch = new SpriteBatch();
 		user = new User("Jorge Test", "MX001");
 		AxolotlTextures.loadLobby(user);
 
-		setScreen(new LobbyScreen(this));
+		setScreen(new LobbyScreen(this, 3000));
 	}
 
 	@Override
