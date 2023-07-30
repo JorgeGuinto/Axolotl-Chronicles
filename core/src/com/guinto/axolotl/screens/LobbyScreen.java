@@ -9,6 +9,8 @@ import com.guinto.axolotl.AxolotlChronicles;
 import com.guinto.axolotl.assets.Assets;
 import com.guinto.axolotl.renderers.LobbyRenderer;
 
+import java.util.Collections;
+
 public class LobbyScreen extends ScreenAdapter {
 
     private AxolotlChronicles game;

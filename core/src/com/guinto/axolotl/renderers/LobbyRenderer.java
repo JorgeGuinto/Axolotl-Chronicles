@@ -5,6 +5,7 @@ import com.guinto.axolotl.AxolotlChronicles;
 import com.guinto.axolotl.assets.Assets;
 import com.guinto.axolotl.assets.Building;
 import com.guinto.axolotl.characters.Axolotl;
+import com.guinto.axolotl.resources.AxolotlComparator;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -16,12 +17,13 @@ public class LobbyRenderer {
 
     private AxolotlChronicles game;
     private static ArrayList<Axolotl> poppedCharacters;
+    private static ArrayList<Axolotl> shownCharacters;
     public float duration = 0;
     @Setter
     private int currentCharacterIndex = 0;
     private float timeSinceLastCharacter = 0;
     private float characterDelay = 2;
-    int charactersToShow = 3;
+    int charactersToShow = 7;
     private Building lBuilding = new Building("bLobbyL");
     private Building cBuilding = new Building("bLobbyC");
     private Building rBuilding = new Building("bLobbyR");
@@ -66,6 +68,7 @@ public class LobbyRenderer {
     private void renderCharacters(float delta) {
         Random rand = new Random();
         if (timeSinceLastCharacter > characterDelay && currentCharacterIndex < charactersToShow){
+            shownCharacters.add(poppedCharacters.get(currentCharacterIndex));
             currentCharacterIndex++;
             timeSinceLastCharacter = 0;
             characterDelay = rand.nextInt(5) + 4;
@@ -73,10 +76,9 @@ public class LobbyRenderer {
         game.batch.enableBlending();
         game.batch.begin();
         int i = 0;
-        for (Axolotl axolotl : poppedCharacters) {
-            if (i < currentCharacterIndex) {
-                axolotl.draw(game.batch, duration, game.guiCam.position.x);
-            }
+        Collections.sort(shownCharacters, new AxolotlComparator());
+        for (Axolotl axolotl : shownCharacters) {
+            axolotl.draw(game.batch, duration, game.guiCam.position.x);
             i ++;
         }
         game.batch.end();
@@ -85,6 +87,7 @@ public class LobbyRenderer {
 
     public void popCharacters() {
         if (game.user.unlockedCharacters != null && game.user.unlockedCharacters.size() > 0) {
+            shownCharacters = new ArrayList<>();
             poppedCharacters = new ArrayList<>(game.user.unlockedCharacters);
             Collections.shuffle(poppedCharacters);
             charactersToShow = Math.min(charactersToShow, game.user.unlockedCharacters.size());

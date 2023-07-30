@@ -5,6 +5,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.guinto.axolotl.AxolotlChronicles;
 import com.guinto.axolotl.assets.Assets;
 import com.guinto.axolotl.characters.Axolotl;
+import com.guinto.axolotl.resources.AxolotlComparator;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -16,6 +17,7 @@ public class ForgeRenderer {
 
     private AxolotlChronicles game;
     private static ArrayList<Axolotl> poppedCharacters;
+    private static ArrayList<Axolotl> shownCharacters;
     public Rectangle door = new Rectangle(0, 0, 330, 1000);
     public float duration = 0;
     @Setter
@@ -47,6 +49,7 @@ public class ForgeRenderer {
     private void renderCharacters(float delta) {
         Random rand = new Random();
         if (timeSinceLastCharacter > characterDelay && currentCharacterIndex < charactersToShow){
+            shownCharacters.add(poppedCharacters.get(currentCharacterIndex));
             currentCharacterIndex++;
             timeSinceLastCharacter = 0;
             characterDelay = rand.nextInt(5) + 4;
@@ -54,10 +57,9 @@ public class ForgeRenderer {
         game.batch.enableBlending();
         game.batch.begin();
         int i = 0;
-        for (Axolotl axolotl : poppedCharacters) {
-            if (i < currentCharacterIndex) {
-                axolotl.draw(game.batch, duration, game.guiCam.position.x);
-            }
+        Collections.sort(shownCharacters, new AxolotlComparator());
+        for (Axolotl axolotl : shownCharacters) {
+            axolotl.draw(game.batch, duration, game.guiCam.position.x);
             i ++;
         }
         game.batch.end();
@@ -65,6 +67,7 @@ public class ForgeRenderer {
     }
 
     public void popCharacters() {
+        shownCharacters = new ArrayList<>();
         if (game.user.unlockedCharacters != null && game.user.unlockedCharacters.size() > 0) {
             poppedCharacters = new ArrayList<>(game.user.unlockedCharacters);
             Collections.shuffle(poppedCharacters);
