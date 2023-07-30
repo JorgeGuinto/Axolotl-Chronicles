@@ -11,59 +11,36 @@ public class InfoLoader {
 
     public static JsonArray charactersArray = new JsonArray();
     public static JsonArray buildingsArray  = new JsonArray();
+    public static JsonArray weaponsArray  = new JsonArray();
+    public static JsonArray armorsArray  = new JsonArray();
 
-    public static void loadFile() {
-        loadCharactersFile();
-        loadBuildingsFile();
+    public static void loadFiles() {
+        charactersArray = loadFile("characters");
+        buildingsArray = loadFile("buildings");
+        weaponsArray = loadFile("weapons");
+        armorsArray = loadFile("armors");
     }
 
-    public static void loadCharactersFile() {
-        FileHandle fileHandle = Gdx.files.internal("info/charactersTest.json");
-
+    public static JsonArray loadFile(String file){
+        FileHandle fileHandle = Gdx.files.internal("info/" + file + ".json");
         if (fileHandle.exists()) {
             String jsonString = fileHandle.readString();
             JsonObject jsonObjectString = JsonParser.parseString(jsonString).getAsJsonObject();
-            charactersArray = jsonObjectString.getAsJsonArray("characters");
+            return jsonObjectString.getAsJsonArray(file);
         }
+        return null;
     }
 
-    public static void loadBuildingsFile() {
-        FileHandle fileHandle = Gdx.files.internal("info/buildingsInfo.json");
-
-        if (fileHandle.exists()) {
-            String jsonString = fileHandle.readString();
-            JsonObject jsonObjectString = JsonParser.parseString(jsonString).getAsJsonObject();
-            buildingsArray = jsonObjectString.getAsJsonArray("buildings");
-        }
-    }
-
-    public static JsonObject findCharacter(String code) {
-        JsonObject characterFound = null;
-
-        for (JsonElement element : charactersArray) {
-            JsonObject character = element.getAsJsonObject();
-            String jsonCode = character.get("code").getAsString();
-
+    public static JsonObject find(String code, JsonArray array) {
+        JsonObject elementFound = null;
+        for (JsonElement element : array) {
+            JsonObject tempElement = element.getAsJsonObject();
+            String jsonCode = tempElement.get("code").getAsString();
             if (jsonCode.equals(code)) {
-                characterFound = character;
+                elementFound = tempElement;
                 break;
             }
         }
-        return characterFound;
-    }
-
-    public static JsonObject findBuilding(String name) {
-        JsonObject buildingFound = null;
-
-        for (JsonElement element : buildingsArray) {
-            JsonObject building = element.getAsJsonObject();
-            String jsonCode = building.get("code").getAsString();
-
-            if (jsonCode.equals(name)) {
-                buildingFound = building;
-                break;
-            }
-        }
-        return buildingFound;
+        return elementFound;
     }
 }

@@ -1,0 +1,94 @@
+{
+  "weapons":[
+    {
+      "code": "fds",
+      "group": "Normal",
+      "name": "Wooden sword",
+      "extraDamage": 3,
+      "extraAbility": 10,
+      "extraAttackSpeed": 0.63,
+      "extraRechargeAbilitySpeed": 0.76
+    },
+    {
+      "code": "hgfd",
+      "group": "Normal",
+      "name": "Plastic maze",
+      "extraDamage": 4,
+      "extraAbility": 11,
+      "extraAttackSpeed": 0.42,
+      "extraRechargeAbilitySpeed": 0.51
+    },
+    {
+      "code": "jyt",
+      "group": "Rare",
+      "name": "Iron spear",
+      "extraDamage": 6,
+      "extraAbility": 12,
+      "extraAttackSpeed": 0.5,
+      "extraRechargeAbilitySpeed": 0.79
+    },
+    {
+      "code": "rd",
+      "group": "Rare",
+      "name": "Bow",
+      "extraDamage": 7,
+      "extraAbility": 13,
+      "extraAttackSpeed": 0.62,
+      "extraRechargeAbilitySpeed": 0.49
+    },
+    {
+      "code": "fgby",
+      "group": "Epic",
+      "name": "Golden Sword",
+      "extraDamage": 20,
+      "extraAbility": 14,
+      "extraAttackSpeed": 0.53,
+      "extraRechargeAbilitySpeed": 0.33
+    },
+    {
+      "code": "treuyt",
+      "group": "Epic",
+      "name": "Hammer",
+      "extraDamage": 25,
+      "extraAbility": 15,
+      "extraAttackSpeed": 0.65,
+      "extraRechargeAbilitySpeed": 0.72
+    },
+    {
+      "code": "rdgf",
+      "group": "Legendary",
+      "name": "CA Shield",
+      "extraDamage": 50,
+      "extraAbility": 16,
+      "extraAttackSpeed": 0.75,
+      "extraRechargeAbilitySpeed": 0.31
+    },
+    {
+      "code": "ser",
+      "group": "Legendary",
+      "name": "WebShooters",
+      "extraDamage": 65,
+      "extraAbility": 17,
+      "extraAttackSpeed": 0.43,
+      "extraRechargeAbilitySpeed": 0.68
+    },
+    {
+      "code": "yrt",
+      "group": "Mythic",
+      "name": "Mjolnir",
+      "extraDamage": 100,
+      "extraAbility": 18,
+      "extraAttackSpeed": 0.76,
+      "extraRechargeAbilitySpeed": 0.39
+    },
+    {
+      "code": "hgfd",
+      "group": "Mythic",
+      "name": "Teseract",
+      "extraDamage": 150,
+      "extraAbility": 19,
+      "extraAttackSpeed": 0.63,
+      "extraRechargeAbilitySpeed": 0.58
+    }
+  ]
+}

@@ -20,7 +20,7 @@ public class AxolotlChronicles extends Game {
 	public void create () {
 		setViewport();
 		Assets.loadStart();
-		InfoLoader.loadFile();
+		InfoLoader.loadFiles();
 
 		batch = new SpriteBatch();
 		user = new User("Jorge Test", "MX001");

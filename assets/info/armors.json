@@ -1,0 +1,94 @@
+{
+  "armors":[
+    {
+      "code": "a1",
+      "group": "Normal",
+      "name": "armor1",
+      "extraLife": 36,
+      "extraDefense": 5,
+      "extraAttackSpeed": 0.35,
+      "extraRechargeAbilitySpeed": 0.41
+    },
+    {
+      "code": "b2",
+      "group": "Normal",
+      "name": "armor2",
+      "extraLife": 32,
+      "extraDefense": 5,
+      "extraAttackSpeed": -0.1,
+      "extraRechargeAbilitySpeed": -0.39
+    },
+    {
+      "code": "c3",
+      "group": "Rare",
+      "name": "armor3",
+      "extraLife": 31,
+      "extraDefense": 5,
+      "extraAttackSpeed": 0.48,
+      "extraRechargeAbilitySpeed": 0.13
+    },
+    {
+      "code": "d4",
+      "group": "Rare",
+      "name": "armor4",
+      "extraLife": 49,
+      "extraDefense": 5,
+      "extraAttackSpeed": -0.04,
+      "extraRechargeAbilitySpeed": 0.2
+    },
+    {
+      "code": "e5",
+      "group": "Epic",
+      "name": "armor5",
+      "extraLife": 43,
+      "extraDefense": 4,
+      "extraAttackSpeed": -0.04,
+      "extraRechargeAbilitySpeed": 0.48
+    },
+    {
+      "code": "f6",
+      "group": "Epic",
+      "name": "armor6",
+      "extraLife": 30,
+      "extraDefense": 5,
+      "extraAttackSpeed": 0.29,
+      "extraRechargeAbilitySpeed": -0.06
+    },
+    {
+      "code": "g7",
+      "group": "Legendary",
+      "name": "armor7",
+      "extraLife": 47,
+      "extraDefense": 3,
+      "extraAttackSpeed": -0.42,
+      "extraRechargeAbilitySpeed": 0.1
+    },
+    {
+      "code": "h8",
+      "group": "Legendary",
+      "name": "armor8",
+      "extraLife": 31,
+      "extraDefense": 5,
+      "extraAttackSpeed": 0.48,
+      "extraRechargeAbilitySpeed": -0.38
+    },
+    {
+      "code": "i9",
+      "group": "Mythic",
+      "name": "armor9",
+      "extraLife": 31,
+      "extraDefense": 4,
+      "extraAttackSpeed": -0.3,
+      "extraRechargeAbilitySpeed": 0.26
+    },
+    {
+      "code": "ja",
+      "group": "Mythic",
+      "name": "armor10",
+      "extraLife": 50,
+      "extraDefense": 4,
+      "extraAttackSpeed": -0.28,
+      "extraRechargeAbilitySpeed": 0.11
+    }
+  ]
+}

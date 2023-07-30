@@ -22,8 +22,7 @@ public class Building {
 
     public Building(String code) {
         this.code = code;
-
-        building = InfoLoader.findBuilding(this.code);
+        building = InfoLoader.find(this.code, InfoLoader.buildingsArray);
 
         if (building != null) {
             this.x = building.get("x").getAsInt();

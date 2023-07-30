@@ -42,7 +42,7 @@ public class AxolotlTextures {
     }
 
     private static Animation<TextureRegion> getCharacterAnimation(TextureRegion textureRegion, String state, String code) {
-        JsonObject characterFound = InfoLoader.findCharacter(code);
+        JsonObject characterFound = InfoLoader.find(code, InfoLoader.charactersArray);
 
         TextureRegion [][] temp = textureRegion.split(textureRegion.getRegionWidth() / characterFound.get("frames" + state + "H").getAsInt(), textureRegion.getRegionHeight()/ characterFound.get("frames" + state + "V").getAsInt());
         TextureRegion[] frames = new TextureRegion[temp.length * temp[0].length];

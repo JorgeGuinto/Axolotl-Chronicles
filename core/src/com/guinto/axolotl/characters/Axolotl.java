@@ -28,7 +28,8 @@ public class Axolotl extends Actor {
     private String NAME, GROUP;
 
     // == Game character fields ==
-    private int life, ability, defense, damage, attackSpeed, rechargeAbilitySpeed;
+    private int life, ability, defense, damage;
+    private float attackSpeed, rechargeAbilitySpeed;
 
 //    private Armor armor;
 //    private Weapon weapon:
@@ -47,7 +48,7 @@ public class Axolotl extends Actor {
 
     public Axolotl(String CODE) {
         this.CODE = CODE;
-        character = InfoLoader.findCharacter(this.CODE);
+        character = InfoLoader.find(this.CODE, InfoLoader.charactersArray);
 
         if (character != null) {
             this.NAME = character.get("name").getAsString();
@@ -56,8 +57,8 @@ public class Axolotl extends Actor {
             this.damage = character.get("damage").getAsInt();
             this.ability = character.get("ability").getAsInt();
             this.defense = character.get("defense").getAsInt();
-            this.attackSpeed = character.get("attackSpeed").getAsInt();
-            this.rechargeAbilitySpeed = character.get("rechargeAbilitySpeed").getAsInt();
+            this.attackSpeed = character.get("attackSpeed").getAsFloat();
+            this.rechargeAbilitySpeed = character.get("rechargeAbilitySpeed").getAsFloat();
         }
     }
 
