@@ -20,8 +20,7 @@ import lombok.Setter;
 public class Axolotl extends Actor {
     // == Dynamic fields ==
     private Vector2 destination = new Vector2();
-    private int waitTimer = 0;
-    private int moveTimer = 0;
+    private int waitTimer = 0, moveTimer = 0;
 
     // == Classification fields ==
     private final String CODE;
@@ -66,7 +65,6 @@ public class Axolotl extends Actor {
         if (newState == STATE_WALK) {
             if (state != STATE_WALK && waitTimer <= 0) {
                 state = STATE_WALK;
-                moveTimer = 0;
                 Random rand = new Random();
                 destination.set((cameraX-1000) + (rand.nextFloat() * (2000 - 400)), rand.nextFloat() * 300);
                 float distance = new Vector2(getX(), getY()).dst(destination);

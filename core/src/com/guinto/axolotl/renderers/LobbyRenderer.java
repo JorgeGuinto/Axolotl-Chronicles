@@ -23,7 +23,7 @@ public class LobbyRenderer {
     private int currentCharacterIndex = 0;
     private float timeSinceLastCharacter = 0;
     private float characterDelay = 2;
-    int charactersToShow = 7;
+    int charactersToShow = 3;
     private Building lBuilding = new Building("bLobbyL");
     private Building cBuilding = new Building("bLobbyC");
     private Building rBuilding = new Building("bLobbyR");
@@ -75,11 +75,9 @@ public class LobbyRenderer {
         }
         game.batch.enableBlending();
         game.batch.begin();
-        int i = 0;
         Collections.sort(shownCharacters, new AxolotlComparator());
         for (Axolotl axolotl : shownCharacters) {
             axolotl.draw(game.batch, duration, game.guiCam.position.x);
-            i ++;
         }
         game.batch.end();
         timeSinceLastCharacter += delta;

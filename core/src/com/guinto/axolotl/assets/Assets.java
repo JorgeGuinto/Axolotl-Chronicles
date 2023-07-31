@@ -58,4 +58,8 @@ public class Assets {
     public static void disposeInvocation() {
         background.dispose();
     }
+
+    public void initFonts() {
+//        FreeTypeFontGenerator generator = new FreeType
+    }
 }

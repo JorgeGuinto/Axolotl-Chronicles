@@ -56,11 +56,9 @@ public class ForgeRenderer {
         }
         game.batch.enableBlending();
         game.batch.begin();
-        int i = 0;
         Collections.sort(shownCharacters, new AxolotlComparator());
         for (Axolotl axolotl : shownCharacters) {
             axolotl.draw(game.batch, duration, game.guiCam.position.x);
-            i ++;
         }
         game.batch.end();
         timeSinceLastCharacter += delta;

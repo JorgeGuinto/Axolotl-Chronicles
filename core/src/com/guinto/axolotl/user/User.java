@@ -14,10 +14,17 @@ public class User {
     public ArrayList <Axolotl> unlockedCharacters = new ArrayList<>();
     public ArrayList <Armor> unlockedArmors = new ArrayList<>();
     public ArrayList <Weapon> unlockedWeapons = new ArrayList<>();
+    private double shells;
+    private int jades, obsidianRocks;
 
     public User(String name, String code) {
         this.name = name;
         this.code = code;
+
+        this.shells = 1000;
+        this.jades = 50;
+        this.obsidianRocks = 300;
+
         createCharacters();
         createWeapons();
         createArmors();
