@@ -2,7 +2,6 @@
   "buildings":[
     {
       "code": "bLobbyL",
-      "name": "buildingLeft.png",
       "x": 0,
       "y": 150,
       "imageW": 348,
@@ -13,7 +12,6 @@
     },
     {
       "code": "bLobbyR",
-      "name": "buildingRight.png",
       "x": 5350,
       "y": 100,
       "imageW": 460,
@@ -24,7 +22,6 @@
     },
     {
       "code": "bLobbyC",
-      "name": "buildingCenter.png",
       "x": 2350,
       "y": 200,
       "imageW": 742,
@@ -32,6 +29,16 @@
       "width": 1000,
       "height": 500,
       "vertices": [0, 0, 400, 480, 600, 480, 990, 0]
+    },
+    {
+      "code": "workshopTable",
+      "x": 5100,
+      "y": 300,
+      "imageW":720,
+      "imageH": 720,
+      "width": 400,
+      "height": 400,
+      "vertices": [80, 430, 120, 260, 320, 70, 600, 180, 600, 300, 320, 500]
     }
   ]
 }

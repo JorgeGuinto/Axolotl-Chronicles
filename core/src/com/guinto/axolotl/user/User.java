@@ -8,14 +8,18 @@ import com.guinto.axolotl.gear.Weapon;
 
 import java.util.ArrayList;
 
+import lombok.Getter;
+import lombok.Setter;
+
 public class User {
     private final String name;
     private final String code;
     public ArrayList <Axolotl> unlockedCharacters = new ArrayList<>();
     public ArrayList <Armor> unlockedArmors = new ArrayList<>();
     public ArrayList <Weapon> unlockedWeapons = new ArrayList<>();
-    private double shells;
-    private int jades, obsidianRocks;
+    @Getter
+    @Setter
+    private int shells, jades, obsidianRocks;
 
     public User(String name, String code) {
         this.name = name;
@@ -73,16 +77,20 @@ public class User {
         unlockedWeapons.add(e5);
     }
     public void createArmors(){
-        Armor a1 = new Armor("a1");
-        Armor b2 = new Armor("b2");
-        Armor c3 = new Armor("c3");
-        Armor d4 = new Armor("d4");
-        Armor e5 = new Armor("e5");
-
-        unlockedArmors.add(a1);
-        unlockedArmors.add(b2);
-        unlockedArmors.add(c3);
-        unlockedArmors.add(d4);
-        unlockedArmors.add(e5);
+        Armor a01;
+        for (int i = 0; i < 9; i++) {
+            a01 = new Armor("a0" + (i+1));
+            unlockedArmors.add(a01);
+            a01 = new Armor("b0" + (i+1));
+            unlockedArmors.add(a01);
+            a01 = new Armor("c0" + (i+1));
+            unlockedArmors.add(a01);
+        }
+        a01 = new Armor("a10");
+        unlockedArmors.add(a01);
+        a01 = new Armor("b10");
+        unlockedArmors.add(a01);
+        a01 = new Armor("c10");
+        unlockedArmors.add(a01);
     }
 }

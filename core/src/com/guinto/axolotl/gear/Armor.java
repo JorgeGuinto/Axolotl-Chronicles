@@ -1,8 +1,13 @@
 package com.guinto.axolotl.gear;
 
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.google.gson.JsonObject;
+import com.guinto.axolotl.assets.Assets;
 import com.guinto.axolotl.assets.InfoLoader;
 
+import lombok.Getter;
+
+@Getter
 public class Armor {
     private final String CODE;
     private String name;
@@ -11,6 +16,7 @@ public class Armor {
     private int extraDefense;
     private float extraAttackSpeed;
     private float extraRechargeAbilitySpeed;
+    private TextureRegion armorRegion;
 
     private JsonObject armor;
 
@@ -26,7 +32,11 @@ public class Armor {
             this.extraDefense = armor.get("extraDefense").getAsInt();
             this.extraAttackSpeed = armor.get("extraAttackSpeed").getAsFloat();
             this.extraRechargeAbilitySpeed = armor.get("extraRechargeAbilitySpeed").getAsFloat();
+            loadRegion();
         }
     }
 
+    private void loadRegion() {
+        this.armorRegion = Assets.armors.findRegion(CODE);
+    }
 }

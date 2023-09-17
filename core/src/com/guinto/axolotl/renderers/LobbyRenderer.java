@@ -115,14 +115,11 @@ public class LobbyRenderer {
     public boolean buildingTouch(float x, float y){
         switch ((int) game.guiCam.position.x) {
             case 1000:
-                if (lBuilding.getPolygon().contains(x, y)) return true;
-                break;
+                return lBuilding.getPolygon().contains(x, y);
             case 3000:
-                if (cBuilding.getPolygon().contains(x, y)) return true;
-                break;
+                return cBuilding.getPolygon().contains(x, y);
             case 5000:
-                if (rBuilding.getPolygon().contains(x, y)) return true;
-                break;
+                return rBuilding.getPolygon().contains(x, y);
         }
         return false;
     }
