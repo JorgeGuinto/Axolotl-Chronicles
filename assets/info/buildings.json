@@ -32,13 +32,23 @@
     },
     {
       "code": "workshopTable",
-      "x": 5100,
+      "x": 1200,
       "y": 300,
       "imageW":720,
       "imageH": 720,
       "width": 400,
       "height": 400,
       "vertices": [80, 430, 120, 260, 320, 70, 600, 180, 600, 300, 320, 500]
+    },
+    {
+      "code": "mannequin",
+      "x": 400,
+      "y": 300,
+      "imageW":400,
+      "imageH": 400,
+      "width": 400,
+      "height": 400,
+      "vertices": [80, 0, 80, 400, 300, 400, 300, 0]
     }
   ]
 }

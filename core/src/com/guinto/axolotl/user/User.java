@@ -64,33 +64,44 @@ public class User {
     }
 
     public void createWeapons(){
-        Weapon a1 = new Weapon("fds");
-        Weapon b2 = new Weapon("hgfd");
-        Weapon c3 = new Weapon("jyt");
-        Weapon d4 = new Weapon("rd");
-        Weapon e5 = new Weapon("fgby");
+        Weapon a01;
+        for (int i = 0; i < 9; i++) {
+            a01 = new Weapon("wa0" + (i+1));
+            unlockedWeapons.add(a01);
+            a01 = new Weapon("wb0" + (i+1));
+            unlockedWeapons.add(a01);
+            a01 = new Weapon("ws0" + (i+1));
+            unlockedWeapons.add(a01);
+            a01 = new Weapon("ww0" + (i+1));
+            unlockedWeapons.add(a01);
+        }
+        for (int i = 9; i < 14; i++) {
+            a01 = new Weapon("wa" + (i+1));
+            unlockedWeapons.add(a01);
+            a01 = new Weapon("wb" + (i+1));
+            unlockedWeapons.add(a01);
+            a01 = new Weapon("ws" + (i+1));
+            unlockedWeapons.add(a01);
+            a01 = new Weapon("ww" + (i+1));
+            unlockedWeapons.add(a01);
+        }
 
-        unlockedWeapons.add(a1);
-        unlockedWeapons.add(b2);
-        unlockedWeapons.add(c3);
-        unlockedWeapons.add(d4);
-        unlockedWeapons.add(e5);
     }
     public void createArmors(){
         Armor a01;
         for (int i = 0; i < 9; i++) {
-            a01 = new Armor("a0" + (i+1));
+            a01 = new Armor("aa0" + (i+1));
             unlockedArmors.add(a01);
-            a01 = new Armor("b0" + (i+1));
+            a01 = new Armor("ab0" + (i+1));
             unlockedArmors.add(a01);
-            a01 = new Armor("c0" + (i+1));
+            a01 = new Armor("ac0" + (i+1));
             unlockedArmors.add(a01);
         }
-        a01 = new Armor("a10");
+        a01 = new Armor("aa10");
         unlockedArmors.add(a01);
-        a01 = new Armor("b10");
+        a01 = new Armor("ab10");
         unlockedArmors.add(a01);
-        a01 = new Armor("c10");
+        a01 = new Armor("ac10");
         unlockedArmors.add(a01);
     }
 }

@@ -108,7 +108,7 @@ public class TestScreen extends ScreenAdapter {
                 "\nExtra Defense: " + armor.getExtraDefense() +
                 "\nExtra Attack Speed: " + armor.getExtraAttackSpeed() +
                 "\nExtra Recharge Ability Speed: " + armor.getExtraRechargeAbilitySpeed());
-        picture.setDrawable(new TextureRegionDrawable(armor.getArmorRegion()));
+        picture.setDrawable(new TextureRegionDrawable(armor.getEquipmentRegion()));
     }
 
     private void initScrollPane() {
@@ -122,7 +122,7 @@ public class TestScreen extends ScreenAdapter {
         for (final Armor armor : game.user.unlockedArmors){
             final ImageTextButton item = new ImageTextButton(armor.getGroup() + ": " + armor.getName(), Assets.skin);
             ImageTextButton.ImageTextButtonStyle buttonStyle = new ImageTextButton.ImageTextButtonStyle(Assets.skin.get("default", ImageTextButton.ImageTextButtonStyle.class));
-            Drawable imageUp = new TextureRegionDrawable(armor.getArmorRegion());
+            Drawable imageUp = new TextureRegionDrawable(armor.getEquipmentRegion());
             buttonStyle.imageUp = imageUp;
             buttonStyle.imageDown = imageUp;
             buttonStyle.font = Assets.skin.getFont("button-d");

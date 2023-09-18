@@ -1,7 +1,7 @@
 {
   "armors":[
     {
-      "code": "a01",
+      "code": "aa01",
       "group": "Legendary",
       "name": "armor01",
       "extraLife": 44,
@@ -10,7 +10,7 @@
       "extraRechargeAbilitySpeed": 0.08999999999999997
     },
     {
-      "code": "a02",
+      "code": "aa02",
       "group": "Normal",
       "name": "armor02",
       "extraLife": 33,
@@ -19,7 +19,7 @@
       "extraRechargeAbilitySpeed": -0.32999999999999996
     },
     {
-      "code": "a03",
+      "code": "aa03",
       "group": "Rare",
       "name": "armor03",
       "extraLife": 35,
@@ -28,7 +28,7 @@
       "extraRechargeAbilitySpeed": -0.39
     },
     {
-      "code": "a04",
+      "code": "aa04",
       "group": "Rare",
       "name": "armor04",
       "extraLife": 42,
@@ -37,7 +37,7 @@
       "extraRechargeAbilitySpeed": -0.34
     },
     {
-      "code": "a05",
+      "code": "aa05",
       "group": "Legendary",
       "name": "armor05",
       "extraLife": 30,
@@ -46,7 +46,7 @@
       "extraRechargeAbilitySpeed": 0.18000000000000005
     },
     {
-      "code": "a06",
+      "code": "aa06",
       "group": "Rare",
       "name": "armor06",
       "extraLife": 42,
@@ -55,7 +55,7 @@
       "extraRechargeAbilitySpeed": -0.24
     },
     {
-      "code": "a07",
+      "code": "aa07",
       "group": "Epic",
       "name": "armor07",
       "extraLife": 54,
@@ -64,7 +64,7 @@
       "extraRechargeAbilitySpeed": 0.28
     },
     {
-      "code": "a08",
+      "code": "aa08",
       "group": "Rare",
       "name": "armor08",
       "extraLife": 48,
@@ -73,7 +73,7 @@
       "extraRechargeAbilitySpeed": 0.24
     },
     {
-      "code": "a09",
+      "code": "aa09",
       "group": "Epic",
       "name": "armor09",
       "extraLife": 46,
@@ -82,7 +82,7 @@
       "extraRechargeAbilitySpeed": 0.14
     },
     {
-      "code": "a10",
+      "code": "aa10",
       "group": "Normal",
       "name": "armor10",
       "extraLife": 50,
@@ -91,7 +91,7 @@
       "extraRechargeAbilitySpeed": -0.42
     },
     {
-      "code": "b01",
+      "code": "ab01",
       "group": "Normal",
       "name": "boots01",
       "extraLife": 34,
@@ -100,7 +100,7 @@
       "extraRechargeAbilitySpeed": 0.08999999999999997
     },
     {
-      "code": "b02",
+      "code": "ab02",
       "group": "Rare",
       "name": "boots02",
       "extraLife": 49,
@@ -109,7 +109,7 @@
       "extraRechargeAbilitySpeed": -0.21000000000000002
     },
     {
-      "code": "b03",
+      "code": "ab03",
       "group": "Normal",
       "name": "boots03",
       "extraLife": 47,
@@ -118,7 +118,7 @@
       "extraRechargeAbilitySpeed": -0.14
     },
     {
-      "code": "b04",
+      "code": "ab04",
       "group": "Normal",
       "name": "boots04",
       "extraLife": 33,
@@ -127,7 +127,7 @@
       "extraRechargeAbilitySpeed": 0.15000000000000002
     },
     {
-      "code": "b05",
+      "code": "ab05",
       "group": "Normal",
       "name": "boots05",
       "extraLife": 52,
@@ -136,7 +136,7 @@
       "extraRechargeAbilitySpeed": 0.020000000000000018
     },
     {
-      "code": "b06",
+      "code": "ab06",
       "group": "Legendary",
       "name": "boots06",
       "extraLife": 37,
@@ -145,7 +145,7 @@
       "extraRechargeAbilitySpeed": 0.030000000000000027
     },
     {
-      "code": "b07",
+      "code": "ab07",
       "group": "Normal",
       "name": "boots07",
       "extraLife": 46,
@@ -154,7 +154,7 @@
       "extraRechargeAbilitySpeed": -0.03999999999999998
     },
     {
-      "code": "b08",
+      "code": "ab08",
       "group": "Rare",
       "name": "boots08",
       "extraLife": 41,
@@ -163,7 +163,7 @@
       "extraRechargeAbilitySpeed": 0.020000000000000018
     },
     {
-      "code": "b09",
+      "code": "ab09",
       "group": "Epic",
       "name": "boots09",
       "extraLife": 32,
@@ -172,7 +172,7 @@
       "extraRechargeAbilitySpeed": -0.4
     },
     {
-      "code": "b10",
+      "code": "ab10",
       "group": "Rare",
       "name": "boots10",
       "extraLife": 45,
@@ -181,7 +181,7 @@
       "extraRechargeAbilitySpeed": 0.43999999999999995
     },
     {
-      "code": "c01",
+      "code": "ac01",
       "group": "Normal",
       "name": "helmet01",
       "extraLife": 53,
@@ -190,7 +190,7 @@
       "extraRechargeAbilitySpeed": -0.21000000000000002
     },
     {
-      "code": "c02",
+      "code": "ac02",
       "group": "Mythic",
       "name": "helmet02",
       "extraLife": 37,
@@ -199,7 +199,7 @@
       "extraRechargeAbilitySpeed": 0.39
     },
     {
-      "code": "c03",
+      "code": "ac03",
       "group": "Normal",
       "name": "helmet03",
       "extraLife": 37,
@@ -208,7 +208,7 @@
       "extraRechargeAbilitySpeed": 0.5
     },
     {
-      "code": "c04",
+      "code": "ac04",
       "group": "Normal",
       "name": "helmet04",
       "extraLife": 52,
@@ -217,7 +217,7 @@
       "extraRechargeAbilitySpeed": -0.21999999999999997
     },
     {
-      "code": "c05",
+      "code": "ac05",
       "group": "Normal",
       "name": "helmet05",
       "extraLife": 34,
@@ -226,7 +226,7 @@
       "extraRechargeAbilitySpeed": 0.19999999999999996
     },
     {
-      "code": "c06",
+      "code": "ac06",
       "group": "Normal",
       "name": "helmet06",
       "extraLife": 55,
@@ -235,7 +235,7 @@
       "extraRechargeAbilitySpeed": -0.21999999999999997
     },
     {
-      "code": "c07",
+      "code": "ac07",
       "group": "Rare",
       "name": "helmet07",
       "extraLife": 51,
@@ -244,7 +244,7 @@
       "extraRechargeAbilitySpeed": 0.34
     },
     {
-      "code": "c08",
+      "code": "ac08",
       "group": "Normal",
       "name": "helmet08",
       "extraLife": 30,
@@ -253,7 +253,7 @@
       "extraRechargeAbilitySpeed": -0.46
     },
     {
-      "code": "c09",
+      "code": "ac09",
       "group": "Legendary",
       "name": "helmet09",
       "extraLife": 51,
@@ -262,7 +262,7 @@
       "extraRechargeAbilitySpeed": -0.5
     },
     {
-      "code": "c10",
+      "code": "ac10",
       "group": "Legendary",
       "name": "helmet10",
       "extraLife": 49,

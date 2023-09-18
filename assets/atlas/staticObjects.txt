@@ -1,32 +1,39 @@
 staticObjects.png
-size: 900, 798
+size: 1600, 750
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
 bLobbyC
   rotate: false
-  xy: 0, 0
+  xy: 0, 518
   size: 500, 232
   orig: 500, 232
   offset: 0, 0
   index: -1
 bLobbyL
   rotate: false
-  xy: 500, 0
+  xy: 0, 0
   size: 400, 280
   orig: 400, 280
   offset: 0, 0
   index: -1
 bLobbyR
   rotate: false
-  xy: 0, 280
+  xy: 400, 0
   size: 400, 518
   orig: 400, 518
   offset: 0, 0
   index: -1
-Workshop table
+mannequin
   rotate: false
-  xy: 400, 280
+  xy: 800, 0
+  size: 400, 400
+  orig: 400, 400
+  offset: 0, 0
+  index: -1
+workshopTable
+  rotate: false
+  xy: 1200, 0
   size: 400, 400
   orig: 400, 400
   offset: 0, 0

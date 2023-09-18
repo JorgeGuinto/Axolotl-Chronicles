@@ -3,20 +3,21 @@ package com.guinto.axolotl.assets;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Polygon;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 import lombok.Data;
 
 @Data
-public class Building {
+public class Building extends Actor {
     private String code;
     private TextureRegion buildingRegion;
     public Polygon polygon;
-    private int x;
-    private int y;
-    private int width;
-    private int height;
+    private int drawX;
+    private int drawY;
+    private int drawWidth;
+    private int drawHeight;
 
     private JsonObject building;
 
@@ -25,10 +26,10 @@ public class Building {
         building = InfoLoader.find(this.code, InfoLoader.buildingsArray);
 
         if (building != null) {
-            this.x = building.get("x").getAsInt();
-            this.y = building.get("y").getAsInt();
-            this.width = building.get("width").getAsInt();
-            this.height = building.get("height").getAsInt();
+            this.drawX = building.get("x").getAsInt();
+            this.drawY = building.get("y").getAsInt();
+            this.drawWidth = building.get("width").getAsInt();
+            this.drawHeight = building.get("height").getAsInt();
 
             JsonArray verticesArray = building.getAsJsonArray("vertices");
             float[] vertices = new float[verticesArray.size()];
@@ -36,7 +37,7 @@ public class Building {
                 vertices[i] = verticesArray.get(i).getAsFloat();
             }
             polygon = new Polygon(vertices);
-            polygon.setPosition(x,y);
+            polygon.setPosition(drawX, drawY);
 
             loadRegion();
         }
@@ -46,7 +47,11 @@ public class Building {
         this.buildingRegion = Assets.sceneObjectsAtlas.findRegion(code);
     }
 
+    @Override
+    public void draw(Batch batch, float parentAlpha) {
+        batch.draw(buildingRegion, drawX, drawY, drawWidth, drawHeight);
+    }
     public void draw(Batch batch) {
-        batch.draw(buildingRegion, x, y, width, height);
+        batch.draw(buildingRegion, drawX, drawY, drawWidth, drawHeight);
     }
 }

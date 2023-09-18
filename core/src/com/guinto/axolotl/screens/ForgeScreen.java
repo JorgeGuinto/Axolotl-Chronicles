@@ -19,7 +19,7 @@ public class ForgeScreen extends ScreenAdapter {
         this.game = game;
         touchPoint = new Vector3();
         stage = new Stage(game.viewport, game.batch);
-        renderer = new ForgeRenderer(game);
+        renderer = new ForgeRenderer(game, stage);
 
     }
 
@@ -29,6 +29,10 @@ public class ForgeScreen extends ScreenAdapter {
         if (Gdx.input.justTouched()) {
             if (renderer.door.contains(touchPoint.x, touchPoint.y)) {
                 game.setScreen(new LobbyScreen(game, 5000));
+            } else if (renderer.workshop.getPolygon().contains(touchPoint.x, touchPoint.y)) {
+                renderer.visibleTable = true;
+            } else if (renderer.mannequin.getPolygon().contains(touchPoint.x, touchPoint.y)) {
+
             }
         }
     }
@@ -41,17 +45,21 @@ public class ForgeScreen extends ScreenAdapter {
         game.guiCam.update();
         game.batch.setProjectionMatrix(game.guiCam.combined);
         renderer.render(delta);
+        stage.draw();
     }
 
     @Override
     public void show() {
         Gdx.input.setInputProcessor(stage);
+        renderer.initTable();
+        renderer.initScrollPanes();
         game.viewport.update(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), true);
     }
 
     @Override
     public void render (float delta) {
         update();
+        stage.act();
         draw(delta);
     }
 

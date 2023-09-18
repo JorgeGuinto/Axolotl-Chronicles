@@ -1,94 +1,544 @@
 {
   "weapons":[
     {
-      "code": "fds",
-      "group": "Normal",
-      "name": "Wooden sword",
-      "extraDamage": 3,
-      "extraAbility": 10,
-      "extraAttackSpeed": 0.63,
-      "extraRechargeAbilitySpeed": 0.76
-    },
-    {
-      "code": "hgfd",
-      "group": "Normal",
-      "name": "Plastic maze",
-      "extraDamage": 4,
-      "extraAbility": 11,
-      "extraAttackSpeed": 0.42,
-      "extraRechargeAbilitySpeed": 0.51
-    },
-    {
-      "code": "jyt",
-      "group": "Rare",
-      "name": "Iron spear",
-      "extraDamage": 6,
-      "extraAbility": 12,
-      "extraAttackSpeed": 0.5,
-      "extraRechargeAbilitySpeed": 0.79
-    },
-    {
-      "code": "rd",
-      "group": "Rare",
-      "name": "Bow",
-      "extraDamage": 7,
-      "extraAbility": 13,
-      "extraAttackSpeed": 0.62,
-      "extraRechargeAbilitySpeed": 0.49
-    },
-    {
-      "code": "fgby",
+      "code": "wa01",
       "group": "Epic",
-      "name": "Golden Sword",
+      "name": "Wooden Axe",
       "extraDamage": 20,
+      "extraAbility": 26,
+      "extraAttackSpeed": 0.54,
+      "extraRechargeAbilitySpeed": 0.44
+    },
+    {
+      "code": "wa02",
+      "group": "Normal",
+      "name": "Stone Axe",
+      "extraDamage": 3,
+      "extraAbility": 12,
+      "extraAttackSpeed": 0.1,
+      "extraRechargeAbilitySpeed": 0.18
+    },
+    {
+      "code": "wa03",
+      "group": "Rare",
+      "name": "Iron Axe",
+      "extraDamage": 6,
+      "extraAbility": 13,
+      "extraAttackSpeed": 0.21,
+      "extraRechargeAbilitySpeed": 0.24
+    },
+    {
+      "code": "wa04",
+      "group": "Normal",
+      "name": "Fire Axe",
+      "extraDamage": 4,
+      "extraAbility": 10,
+      "extraAttackSpeed": 0.15,
+      "extraRechargeAbilitySpeed": 0.13
+    },
+    {
+      "code": "wa05",
+      "group": "Normal",
+      "name": "Abyssal Axe",
+      "extraDamage": 4,
+      "extraAbility": 12,
+      "extraAttackSpeed": 0.18,
+      "extraRechargeAbilitySpeed": 0.18
+    },
+    {
+      "code": "wa06",
+      "group": "Normal",
+      "name": "Forest Axe",
+      "extraDamage": 1,
+      "extraAbility": 9,
+      "extraAttackSpeed": 0.1,
+      "extraRechargeAbilitySpeed": 0.13
+    },
+    {
+      "code": "wa07",
+      "group": "Rare",
+      "name": "Storm Axe",
+      "extraDamage": 12,
+      "extraAbility": 24,
+      "extraAttackSpeed": 0.38,
+      "extraRechargeAbilitySpeed": 0.36
+    },
+    {
+      "code": "wa08",
+      "group": "Normal",
+      "name": "Crystal Axe",
+      "extraDamage": 2,
+      "extraAbility": 9,
+      "extraAttackSpeed": 0.13,
+      "extraRechargeAbilitySpeed": 0.11
+    },
+    {
+      "code": "wa09",
+      "group": "Epic",
+      "name": "Dragon Axe",
+      "extraDamage": 20,
+      "extraAbility": 38,
+      "extraAttackSpeed": 0.49,
+      "extraRechargeAbilitySpeed": 0.45
+    },
+    {
+      "code": "wa10",
+      "group": "Rare",
+      "name": "Hunter's Axe",
+      "extraDamage": 7,
       "extraAbility": 14,
-      "extraAttackSpeed": 0.53,
+      "extraAttackSpeed": 0.25,
+      "extraRechargeAbilitySpeed": 0.22
+    },
+    {
+      "code": "wa11",
+      "group": "Normal",
+      "name": "Dark Axe",
+      "extraDamage": 3,
+      "extraAbility": 12,
+      "extraAttackSpeed": 0.2,
+      "extraRechargeAbilitySpeed": 0.15
+    },
+    {
+      "code": "wa12",
+      "group": "Rare",
+      "name": "King's Axe",
+      "extraDamage": 14,
+      "extraAbility": 19,
+      "extraAttackSpeed": 0.38,
       "extraRechargeAbilitySpeed": 0.33
     },
     {
-      "code": "treuyt",
+      "code": "wa13",
+      "group": "Normal",
+      "name": "Destiny Axe",
+      "extraDamage": 3,
+      "extraAbility": 11,
+      "extraAttackSpeed": 0.16,
+      "extraRechargeAbilitySpeed": 0.15
+    },
+    {
+      "code": "wa14",
+      "group": "Rare",
+      "name": "Lunar Axe",
+      "extraDamage": 8,
+      "extraAbility": 14,
+      "extraAttackSpeed": 0.25,
+      "extraRechargeAbilitySpeed": 0.27
+    },
+    {
+      "code": "wa15",
       "group": "Epic",
-      "name": "Hammer",
-      "extraDamage": 25,
-      "extraAbility": 15,
-      "extraAttackSpeed": 0.65,
+      "name": "Solar Axe",
+      "extraDamage": 28,
+      "extraAbility": 26,
+      "extraAttackSpeed": 0.55,
+      "extraRechargeAbilitySpeed": 0.45
+    },
+    {
+      "code": "wb01",
+      "group": "Legendary",
+      "name": "Longshot Bow",
+      "extraDamage": 38,
+      "extraAbility": 75,
+      "extraAttackSpeed": 0.78,
       "extraRechargeAbilitySpeed": 0.72
     },
     {
-      "code": "rdgf",
+      "code": "wb02",
       "group": "Legendary",
-      "name": "CA Shield",
-      "extraDamage": 50,
-      "extraAbility": 16,
-      "extraAttackSpeed": 0.75,
-      "extraRechargeAbilitySpeed": 0.31
+      "name": "Shadowstrike Bow",
+      "extraDamage": 48,
+      "extraAbility": 75,
+      "extraAttackSpeed": 0.71,
+      "extraRechargeAbilitySpeed": 0.87
     },
     {
-      "code": "ser",
-      "group": "Legendary",
-      "name": "WebShooters",
-      "extraDamage": 65,
-      "extraAbility": 17,
-      "extraAttackSpeed": 0.43,
-      "extraRechargeAbilitySpeed": 0.68
+      "code": "wb03",
+      "group": "Rare",
+      "name": "Dawnfire Bow",
+      "extraDamage": 6,
+      "extraAbility": 15,
+      "extraAttackSpeed": 0.32,
+      "extraRechargeAbilitySpeed": 0.21
     },
     {
-      "code": "yrt",
-      "group": "Mythic",
-      "name": "Mjolnir",
-      "extraDamage": 100,
-      "extraAbility": 18,
-      "extraAttackSpeed": 0.76,
+      "code": "wb04",
+      "group": "Rare",
+      "name": "Serpent's Gaze Bow",
+      "extraDamage": 6,
+      "extraAbility": 13,
+      "extraAttackSpeed": 0.25,
       "extraRechargeAbilitySpeed": 0.39
     },
     {
-      "code": "hgfd",
+      "code": "wb05",
+      "group": "Normal",
+      "name": "Emberstorm Bow",
+      "extraDamage": 5,
+      "extraAbility": 12,
+      "extraAttackSpeed": 0.18,
+      "extraRechargeAbilitySpeed": 0.14
+    },
+    {
+      "code": "wb06",
+      "group": "Epic",
+      "name": "Stormcaller Bow",
+      "extraDamage": 24,
+      "extraAbility": 35,
+      "extraAttackSpeed": 0.65,
+      "extraRechargeAbilitySpeed": 0.63
+    },
+    {
+      "code": "wb07",
+      "group": "Normal",
+      "name": "Moonshadow Bow",
+      "extraDamage": 3,
+      "extraAbility": 12,
+      "extraAttackSpeed": 0.2,
+      "extraRechargeAbilitySpeed": 0.15
+    },
+    {
+      "code": "wb08",
+      "group": "Legendary",
+      "name": "Dragonheart Bow",
+      "extraDamage": 45,
+      "extraAbility": 69,
+      "extraAttackSpeed": 0.84,
+      "extraRechargeAbilitySpeed": 0.86
+    },
+    {
+      "code": "wb09",
+      "group": "Rare",
+      "name": "Frostwind Bow",
+      "extraDamage": 8,
+      "extraAbility": 20,
+      "extraAttackSpeed": 0.31,
+      "extraRechargeAbilitySpeed": 0.33
+    },
+    {
+      "code": "wb10",
+      "group": "Epic",
+      "name": "Starfall Bow",
+      "extraDamage": 18,
+      "extraAbility": 43,
+      "extraAttackSpeed": 0.61,
+      "extraRechargeAbilitySpeed": 0.63
+    },
+    {
+      "code": "wb11",
+      "group": "Normal",
+      "name": "Nature's Whisper Bow",
+      "extraDamage": 5,
+      "extraAbility": 11,
+      "extraAttackSpeed": 0.14,
+      "extraRechargeAbilitySpeed": 0.2
+    },
+    {
+      "code": "wb12",
+      "group": "Epic",
+      "name": "Nightshade Bow",
+      "extraDamage": 17,
+      "extraAbility": 38,
+      "extraAttackSpeed": 0.46,
+      "extraRechargeAbilitySpeed": 0.55
+    },
+    {
+      "code": "wb13",
+      "group": "Normal",
+      "name": "Stormbringer Bow",
+      "extraDamage": 5,
+      "extraAbility": 8,
+      "extraAttackSpeed": 0.19,
+      "extraRechargeAbilitySpeed": 0.16
+    },
+    {
+      "code": "wb14",
+      "group": "Epic",
+      "name": "Phoenix Wing Bow",
+      "extraDamage": 22,
+      "extraAbility": 34,
+      "extraAttackSpeed": 0.44,
+      "extraRechargeAbilitySpeed": 0.56
+    },
+    {
+      "code": "wb15",
+      "group": "Rare",
+      "name": "Astral Serenity Bow",
+      "extraDamage": 9,
+      "extraAbility": 22,
+      "extraAttackSpeed": 0.36,
+      "extraRechargeAbilitySpeed": 0.35
+    },
+    {
+      "code": "ws01",
+      "group": "Rare",
+      "name": "Excalibur",
+      "extraDamage": 13,
+      "extraAbility": 12,
+      "extraAttackSpeed": 0.27,
+      "extraRechargeAbilitySpeed": 0.39
+    },
+    {
+      "code": "ws02",
+      "group": "Normal",
+      "name": "Shadowblade",
+      "extraDamage": 3,
+      "extraAbility": 9,
+      "extraAttackSpeed": 0.2,
+      "extraRechargeAbilitySpeed": 0.11
+    },
+    {
+      "code": "ws03",
+      "group": "Normal",
+      "name": "Dawnbreaker",
+      "extraDamage": 5,
+      "extraAbility": 10,
+      "extraAttackSpeed": 0.12,
+      "extraRechargeAbilitySpeed": 0.19
+    },
+    {
+      "code": "ws04",
+      "group": "Epic",
+      "name": "Serpent's Bite",
+      "extraDamage": 28,
+      "extraAbility": 48,
+      "extraAttackSpeed": 0.42,
+      "extraRechargeAbilitySpeed": 0.57
+    },
+    {
+      "code": "ws05",
+      "group": "Normal",
+      "name": "Frostfang",
+      "extraDamage": 3,
+      "extraAbility": 10,
+      "extraAttackSpeed": 0.13,
+      "extraRechargeAbilitySpeed": 0.1
+    },
+    {
+      "code": "ws06",
+      "group": "Normal",
+      "name": "Stormbringer",
+      "extraDamage": 1,
+      "extraAbility": 11,
+      "extraAttackSpeed": 0.2,
+      "extraRechargeAbilitySpeed": 0.17
+    },
+    {
+      "code": "ws07",
+      "group": "Rare",
+      "name": "Moonlight Blade",
+      "extraDamage": 12,
+      "extraAbility": 20,
+      "extraAttackSpeed": 0.21,
+      "extraRechargeAbilitySpeed": 0.38
+    },
+    {
+      "code": "ws08",
+      "group": "Normal",
+      "name": "Dragonstrike",
+      "extraDamage": 5,
+      "extraAbility": 12,
+      "extraAttackSpeed": 0.1,
+      "extraRechargeAbilitySpeed": 0.19
+    },
+    {
+      "code": "ws09",
+      "group": "Normal",
+      "name": "Firebrand",
+      "extraDamage": 3,
+      "extraAbility": 8,
+      "extraAttackSpeed": 0.11,
+      "extraRechargeAbilitySpeed": 0.11
+    },
+    {
+      "code": "ws10",
+      "group": "Rare",
+      "name": "Starshatter",
+      "extraDamage": 10,
+      "extraAbility": 15,
+      "extraAttackSpeed": 0.22,
+      "extraRechargeAbilitySpeed": 0.37
+    },
+    {
+      "code": "ws11",
+      "group": "Rare",
+      "name": "Nature's Fury",
+      "extraDamage": 11,
+      "extraAbility": 21,
+      "extraAttackSpeed": 0.3,
+      "extraRechargeAbilitySpeed": 0.35
+    },
+    {
+      "code": "ws12",
+      "group": "Normal",
+      "name": "Nightfall",
+      "extraDamage": 5,
+      "extraAbility": 10,
+      "extraAttackSpeed": 0.11,
+      "extraRechargeAbilitySpeed": 0.11
+    },
+    {
+      "code": "ws13",
+      "group": "Rare",
+      "name": "Thunderstrike",
+      "extraDamage": 7,
+      "extraAbility": 25,
+      "extraAttackSpeed": 0.29,
+      "extraRechargeAbilitySpeed": 0.22
+    },
+    {
+      "code": "ws14",
+      "group": "Epic",
+      "name": "Phoenix Blade",
+      "extraDamage": 28,
+      "extraAbility": 48,
+      "extraAttackSpeed": 0.55,
+      "extraRechargeAbilitySpeed": 0.56
+    },
+    {
+      "code": "ws15",
+      "group": "Normal",
+      "name": "Celestial Wrath",
+      "extraDamage": 4,
+      "extraAbility": 10,
+      "extraAttackSpeed": 0.12,
+      "extraRechargeAbilitySpeed": 0.16
+    },
+    {
+      "code": "ww01",
+      "group": "Legendary",
+      "name": "Arcane Scepter",
+      "extraDamage": 54,
+      "extraAbility": 52,
+      "extraAttackSpeed": 0.77,
+      "extraRechargeAbilitySpeed": 0.77
+    },
+    {
+      "code": "ww02",
+      "group": "Normal",
+      "name": "Emberwood Wand",
+      "extraDamage": 2,
+      "extraAbility": 12,
+      "extraAttackSpeed": 0.1,
+      "extraRechargeAbilitySpeed": 0.2
+    },
+    {
+      "code": "ww03",
+      "group": "Rare",
+      "name": "Crystal Shard",
+      "extraDamage": 15,
+      "extraAbility": 13,
+      "extraAttackSpeed": 0.32,
+      "extraRechargeAbilitySpeed": 0.21
+    },
+    {
+      "code": "ww04",
+      "group": "Normal",
+      "name": "Voidcaster",
+      "extraDamage": 3,
+      "extraAbility": 9,
+      "extraAttackSpeed": 0.17,
+      "extraRechargeAbilitySpeed": 0.1
+    },
+    {
+      "code": "ww05",
+      "group": "Normal",
+      "name": "Enchanter's Focus",
+      "extraDamage": 3,
+      "extraAbility": 11,
+      "extraAttackSpeed": 0.12,
+      "extraRechargeAbilitySpeed": 0.19
+    },
+    {
+      "code": "ww06",
+      "group": "Normal",
+      "name": "Druidic Staff",
+      "extraDamage": 2,
+      "extraAbility": 12,
+      "extraAttackSpeed": 0.16,
+      "extraRechargeAbilitySpeed": 0.11
+    },
+    {
+      "code": "ww07",
+      "group": "Normal",
+      "name": "Phoenix Wand",
+      "extraDamage": 1,
+      "extraAbility": 9,
+      "extraAttackSpeed": 0.11,
+      "extraRechargeAbilitySpeed": 0.17
+    },
+    {
+      "code": "ww08",
+      "group": "Normal",
+      "name": "Astral Rod",
+      "extraDamage": 1,
+      "extraAbility": 8,
+      "extraAttackSpeed": 0.13,
+      "extraRechargeAbilitySpeed": 0.19
+    },
+    {
+      "code": "ww09",
+      "group": "Rare",
+      "name": "Starfall Scepter",
+      "extraDamage": 13,
+      "extraAbility": 24,
+      "extraAttackSpeed": 0.35,
+      "extraRechargeAbilitySpeed": 0.37
+    },
+    {
+      "code": "ww10",
+      "group": "Rare",
+      "name": "Runestone Wand",
+      "extraDamage": 5,
+      "extraAbility": 17,
+      "extraAttackSpeed": 0.27,
+      "extraRechargeAbilitySpeed": 0.24
+    },
+    {
+      "code": "ww11",
+      "group": "Normal",
+      "name": "Nature's Grasp",
+      "extraDamage": 3,
+      "extraAbility": 8,
+      "extraAttackSpeed": 0.15,
+      "extraRechargeAbilitySpeed": 0.17
+    },
+    {
+      "code": "ww12",
+      "group": "Rare",
+      "name": "Frostfire Baton",
+      "extraDamage": 14,
+      "extraAbility": 20,
+      "extraAttackSpeed": 0.24,
+      "extraRechargeAbilitySpeed": 0.32
+    },
+    {
+      "code": "ww13",
+      "group": "Epic",
+      "name": "Tempest Wand",
+      "extraDamage": 19,
+      "extraAbility": 41,
+      "extraAttackSpeed": 0.64,
+      "extraRechargeAbilitySpeed": 0.61
+    },
+    {
+      "code": "ww14",
+      "group": "Normal",
+      "name": "Luminous Orb",
+      "extraDamage": 1,
+      "extraAbility": 8,
+      "extraAttackSpeed": 0.13,
+      "extraRechargeAbilitySpeed": 0.11
+    },
+    {
+      "code": "ww15",
       "group": "Mythic",
-      "name": "Teseract",
-      "extraDamage": 150,
-      "extraAbility": 19,
-      "extraAttackSpeed": 0.63,
-      "extraRechargeAbilitySpeed": 0.58
+      "name": "Shadowweaver",
+      "extraDamage": 111,
+      "extraAbility": 194,
+      "extraAttackSpeed": 1.18,
+      "extraRechargeAbilitySpeed": 0.94
     }
   ]
 }

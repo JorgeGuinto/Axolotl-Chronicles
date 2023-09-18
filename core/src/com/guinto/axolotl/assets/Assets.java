@@ -16,7 +16,7 @@ public class Assets {
     public static TextureAtlas idleAtlas;
     public static TextureAtlas walkingAtlas;
     public static TextureAtlas sceneObjectsAtlas;
-    public static TextureAtlas armors;
+    public static TextureAtlas equipmentsAtlas;
     public static Texture background;
     public static Texture gems;
     public static Texture obsidian;
@@ -28,7 +28,6 @@ public class Assets {
     public static TextureRegion backgroundRegion;
     public static BitmapFont titleFont;
     public static BitmapFont lootFont;
-    public static BitmapFont buttonsFont;
 
 
     public static Skin skin = new Skin();
@@ -47,7 +46,7 @@ public class Assets {
         idleAtlas = new TextureAtlas(Gdx.files.internal("atlas/idleAtlas.txt"));
         walkingAtlas = new TextureAtlas(Gdx.files.internal("atlas/walkingAtlas.txt"));
         sceneObjectsAtlas = new TextureAtlas(Gdx.files.internal("atlas/staticObjects.txt"));
-        armors = new TextureAtlas(Gdx.files.internal("atlas/armors.txt"));
+        equipmentsAtlas = new TextureAtlas(Gdx.files.internal("atlas/equipment.txt"));
 
         gems = loadTexture("data/gems.png");
         obsidian = loadTexture("data/obsidian.png");

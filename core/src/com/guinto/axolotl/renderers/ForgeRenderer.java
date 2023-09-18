@@ -1,10 +1,25 @@
 package com.guinto.axolotl.renderers;
 
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import com.badlogic.gdx.scenes.scene2d.ui.ImageTextButton;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.scenes.scene2d.ui.ScrollPane;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.scenes.scene2d.ui.TextArea;
+import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
+import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.guinto.axolotl.AxolotlChronicles;
 import com.guinto.axolotl.assets.Assets;
+import com.guinto.axolotl.assets.Building;
 import com.guinto.axolotl.characters.Axolotl;
+import com.guinto.axolotl.gear.Armor;
 import com.guinto.axolotl.resources.AxolotlComparator;
 
 import java.util.ArrayList;
@@ -16,6 +31,7 @@ import lombok.Setter;
 public class ForgeRenderer {
 
     private AxolotlChronicles game;
+    private Stage stage;
     private static ArrayList<Axolotl> poppedCharacters;
     private static ArrayList<Axolotl> shownCharacters;
     public Rectangle door = new Rectangle(0, 0, 330, 1000);
@@ -25,9 +41,31 @@ public class ForgeRenderer {
     private float timeSinceLastCharacter = 0;
     private float characterDelay = 5;
     int charactersToShow = 2;
+    public Building workshop = new Building("workshopTable");
+    public Building mannequin = new Building("mannequin");
 
-    public ForgeRenderer (AxolotlChronicles game) {
+    // Table
+    private Table container = new Table();
+    private Table details = new Table(Assets.skin);
+    public boolean visibleTable, showDetails = false;
+    private Image picture = new Image();
+    private Label name = new Label("Name", Assets.skin, "button-d", Color.BLACK);
+    private TextArea description = new TextArea("This is the description Area", Assets.skin);
+    private TextArea characteristics = new TextArea("This is the \n Characteristics Area", Assets.skin);
+
+    public ForgeRenderer (AxolotlChronicles game, Stage stage) {
         this.game = game;
+        this.stage = stage;
+        stage.setDebugAll(true);
+
+        workshop.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                visibleTable = true;
+                System.out.println("Clicked table");
+            }
+        });
+
         Assets.loadForge();
         game.guiCam.position.set(1000, game.guiCam.position.y, 0);
         popCharacters();
@@ -36,6 +74,15 @@ public class ForgeRenderer {
     public void render(float delta) {
         duration += delta;
         renderBackground();
+        if (visibleTable) {
+            container.setVisible(true);
+            workshop.setVisible(false);
+        } else {
+            container.setVisible(false);
+            details.setVisible(false);
+            renderStaticObjects();
+        }
+
         renderCharacters(delta);
     }
 
@@ -43,6 +90,14 @@ public class ForgeRenderer {
         game.batch.disableBlending();
         game.batch.begin();
         game.batch.draw(Assets.backgroundRegion, 0, 0);
+        game.batch.end();
+    }
+
+    private void renderStaticObjects(){
+        game.batch.enableBlending();
+        game.batch.begin();
+        workshop.draw(game.batch);
+        mannequin.draw(game.batch);
         game.batch.end();
     }
 
@@ -83,5 +138,103 @@ public class ForgeRenderer {
             axolotl.setDestination(new Vector2(axolotl.getX() + 1, axolotl.getY() + 1));
             axolotl.setWaitTimer(0);
         }
+    }
+
+    public void initTable() {
+        details.setVisible(visibleTable);
+        details.setSize(700, 900);
+        details.setPosition(150, 112);
+        details.add(new Label("Details", Assets.skin, "button-d", Color.BLACK))
+                .expandX()
+                .fillX()
+                .height(100)
+                .top()
+                .left()
+                .colspan(2)
+                .row();
+        details.add(picture)
+                .left()
+                .width(300)
+                .height(300);
+        Table nameDesc = new Table(Assets.skin);
+        nameDesc.add(name)
+                .width(350)
+                .height(100)
+                .top()
+                .left()
+                .row();
+        nameDesc.add(description).expandX()
+                .fillX()
+                .height(100)
+                .top()
+                .left()
+                .row();
+        details.add(nameDesc)
+                .expandX()
+                .fillX()
+                .row();
+        details.add(characteristics)
+                .expandX()
+                .fillX()
+                .left()
+                .height(400)
+                .colspan(2)
+                .row();
+        stage.addActor(details);
+    }
+    private void updateTable(Armor armor) {
+        name.setText(armor.getName());
+        description.setText(armor.getName() + ", Group = " + armor.getGroup());
+        characteristics.setText("Extra Life: " + armor.getExtraLife() +
+                "\nExtra Defense: " + armor.getExtraDefense() +
+                "\nExtra Attack Speed: " + armor.getExtraAttackSpeed() +
+                "\nExtra Recharge Ability Speed: " + armor.getExtraRechargeAbilitySpeed());
+        picture.setDrawable(new TextureRegionDrawable(armor.getEquipmentRegion()));
+    }
+
+    public void initScrollPanes() {
+        Table armorsTable = new Table();
+        ScrollPane scrollPane = new ScrollPane(armorsTable, Assets.skin);
+
+        container.setSize(700, 900);
+        container.setPosition(1150, 112);
+        scrollPane.layout();
+
+        for (final Armor armor : game.user.unlockedArmors){
+            final ImageTextButton item = new ImageTextButton(armor.getGroup() + ": " + armor.getName(), Assets.skin);
+            ImageTextButton.ImageTextButtonStyle buttonStyle = new ImageTextButton.ImageTextButtonStyle(Assets.skin.get("default", ImageTextButton.ImageTextButtonStyle.class));
+            Drawable imageUp = new TextureRegionDrawable(armor.getEquipmentRegion());
+            buttonStyle.imageUp = imageUp;
+            buttonStyle.imageDown = imageUp;
+            buttonStyle.font = Assets.skin.getFont("button-d");
+            item.setStyle(buttonStyle);
+
+            item.left();
+            item.getImageCell().width(100);
+            item.getLabelCell().expandX();
+
+            item.addListener(new ClickListener() {
+                @Override
+                public void clicked(InputEvent event, float x, float y) {
+                    updateTable(armor);
+                    details.setVisible(true);
+                }
+            });
+            armorsTable.add(item).expandX().fillX().width(500).height(100).pad(10).row();
+        }
+
+        container.add(scrollPane).width(600).height(850).row();
+        TextButton closeButton = new TextButton("Close", Assets.skin);
+        closeButton.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                visibleTable = false;
+                System.out.println("Closed table");
+            }
+        });
+
+        container.add(closeButton).right().bottom();
+        stage.addActor(container);
+        container.setVisible(visibleTable);
     }
 }
