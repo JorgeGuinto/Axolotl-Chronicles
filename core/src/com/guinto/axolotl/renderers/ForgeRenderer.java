@@ -5,6 +5,7 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.Touchable;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageTextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
@@ -20,6 +21,8 @@ import com.guinto.axolotl.assets.Assets;
 import com.guinto.axolotl.assets.Building;
 import com.guinto.axolotl.characters.Axolotl;
 import com.guinto.axolotl.gear.Armor;
+import com.guinto.axolotl.gear.Equipment;
+import com.guinto.axolotl.gear.Weapon;
 import com.guinto.axolotl.resources.AxolotlComparator;
 
 import java.util.ArrayList;
@@ -45,9 +48,10 @@ public class ForgeRenderer {
     public Building mannequin = new Building("mannequin");
 
     // Table
-    private Table container = new Table();
+    private Table weaponContainer = new Table();
+    private Table armorContainer = new Table();
     private Table details = new Table(Assets.skin);
-    public boolean visibleTable, showDetails = false;
+    public boolean visibleTable = false;
     private Image picture = new Image();
     private Label name = new Label("Name", Assets.skin, "button-d", Color.BLACK);
     private TextArea description = new TextArea("This is the description Area", Assets.skin);
@@ -58,14 +62,15 @@ public class ForgeRenderer {
         this.stage = stage;
         stage.setDebugAll(true);
 
-        workshop.addListener(new ClickListener() {
-            @Override
-            public void clicked(InputEvent event, float x, float y) {
-                visibleTable = true;
-                System.out.println("Clicked table");
-            }
-        });
+//        workshop.addListener(new ClickListener() {
+//            @Override
+//            public void clicked(InputEvent event, float x, float y) {
+//                System.out.println("Test");
+//            }
+//        });
 
+//        stage.addActor(mannequin);
+//        stage.addActor(workshop);
         Assets.loadForge();
         game.guiCam.position.set(1000, game.guiCam.position.y, 0);
         popCharacters();
@@ -75,10 +80,13 @@ public class ForgeRenderer {
         duration += delta;
         renderBackground();
         if (visibleTable) {
-            container.setVisible(true);
+            mannequin.setVisible(false);
             workshop.setVisible(false);
+//            mannequin.setTouchable(Touchable.disabled);
+//            workshop.setTouchable(Touchable.disabled);
         } else {
-            container.setVisible(false);
+            weaponContainer.setVisible(false);
+            armorContainer.setVisible(false);
             details.setVisible(false);
             renderStaticObjects();
         }
@@ -182,22 +190,31 @@ public class ForgeRenderer {
                 .row();
         stage.addActor(details);
     }
-    private void updateTable(Armor armor) {
-        name.setText(armor.getName());
-        description.setText(armor.getName() + ", Group = " + armor.getGroup());
-        characteristics.setText("Extra Life: " + armor.getExtraLife() +
-                "\nExtra Defense: " + armor.getExtraDefense() +
-                "\nExtra Attack Speed: " + armor.getExtraAttackSpeed() +
-                "\nExtra Recharge Ability Speed: " + armor.getExtraRechargeAbilitySpeed());
-        picture.setDrawable(new TextureRegionDrawable(armor.getEquipmentRegion()));
+    private void updateTable(Equipment equipment) {
+        name.setText(equipment.getName());
+        description.setText(equipment.getName() + ", Group = " + equipment.getGroup());
+
+        if (equipment instanceof Armor) {
+            characteristics.setText("Extra Life: " + ((Armor) equipment).getExtraLife() +
+                "\nExtra Defense: " + ((Armor) equipment).getExtraDefense() +
+                    "\nExtra Attack Speed: " + equipment.getExtraAttackSpeed() +
+                    "\nExtra Recharge Ability Speed: " + equipment.getExtraRechargeAbilitySpeed());
+            picture.setDrawable(new TextureRegionDrawable(equipment.getEquipmentRegion()));
+        } else {
+            characteristics.setText("Extra Damage: " + ((Weapon) equipment).getExtraDamage() +
+                "\nExtra Ability: " + ((Weapon) equipment).getExtraAbility() +
+                    "\nExtra Attack Speed: " + equipment.getExtraAttackSpeed() +
+                    "\nExtra Recharge Ability Speed: " + equipment.getExtraRechargeAbilitySpeed());
+            picture.setDrawable(new TextureRegionDrawable(equipment.getEquipmentRegion()));
+        }
     }
 
     public void initScrollPanes() {
         Table armorsTable = new Table();
         ScrollPane scrollPane = new ScrollPane(armorsTable, Assets.skin);
 
-        container.setSize(700, 900);
-        container.setPosition(1150, 112);
+        armorContainer.setSize(700, 900);
+        armorContainer.setPosition(1150, 112);
         scrollPane.layout();
 
         for (final Armor armor : game.user.unlockedArmors){
@@ -223,7 +240,8 @@ public class ForgeRenderer {
             armorsTable.add(item).expandX().fillX().width(500).height(100).pad(10).row();
         }
 
-        container.add(scrollPane).width(600).height(850).row();
+        armorContainer.add(scrollPane).width(600).height(850).row();
+
         TextButton closeButton = new TextButton("Close", Assets.skin);
         closeButton.addListener(new ClickListener() {
             @Override
@@ -233,8 +251,68 @@ public class ForgeRenderer {
             }
         });
 
-        container.add(closeButton).right().bottom();
-        stage.addActor(container);
-        container.setVisible(visibleTable);
+        armorContainer.add(closeButton).right().bottom();
+        stage.addActor(armorContainer);
+        armorContainer.setVisible(visibleTable);
+
+        weaponContainer.setSize(700, 900);
+        weaponContainer.setPosition(1150, 112);
+
+        Table weaponsTable = new Table();
+        ScrollPane weaponsScrollPane = new ScrollPane(weaponsTable, Assets.skin);
+        weaponsScrollPane.layout();
+
+        for (final Weapon weapon : game.user.unlockedWeapons){
+            final ImageTextButton item = new ImageTextButton(weapon.getGroup() + ": " + weapon.getName(), Assets.skin);
+            ImageTextButton.ImageTextButtonStyle buttonStyle = new ImageTextButton.ImageTextButtonStyle(Assets.skin.get("default", ImageTextButton.ImageTextButtonStyle.class));
+            Drawable imageUp = new TextureRegionDrawable(weapon.getEquipmentRegion());
+            buttonStyle.imageUp = imageUp;
+            buttonStyle.imageDown = imageUp;
+            buttonStyle.font = Assets.skin.getFont("button-d");
+            item.setStyle(buttonStyle);
+
+            item.left();
+            item.getImageCell().width(100);
+            item.getLabelCell().expandX();
+
+            item.addListener(new ClickListener() {
+                @Override
+                public void clicked(InputEvent event, float x, float y) {
+                    Vector2 localCoords = new Vector2(x, y);
+                    item.localToStageCoordinates(localCoords);
+
+                    updateTable(weapon);
+                    details.setVisible(true);
+                }
+            });
+            weaponsTable.add(item).expandX().fillX().width(500).height(100).pad(10).row();
+        }
+
+        weaponContainer.add(weaponsScrollPane).width(600).height(850).row();
+
+        closeButton = new TextButton("Close", Assets.skin);
+        closeButton.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                visibleTable = false;
+                System.out.println("Closed table");
+
+            }
+        });
+
+        weaponContainer.add(closeButton).right().bottom();
+        stage.addActor(weaponContainer);
+        weaponContainer.setVisible(visibleTable);
+
+    }
+    public void showContainer(boolean b) {
+        visibleTable = true;
+        if (b) {
+            weaponContainer.setVisible(true);
+            armorContainer.setVisible(false);
+        } else {
+            armorContainer.setVisible(true);
+            weaponContainer.setVisible(false);
+        }
     }
 }

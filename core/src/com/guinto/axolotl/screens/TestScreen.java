@@ -139,6 +139,7 @@ public class TestScreen extends ScreenAdapter {
                     details.setVisible(true);
                 }
             });
+            item.setDebug(true);
             table.add(item).expandX().fillX().width(500).height(100).pad(10).row();
         }
 

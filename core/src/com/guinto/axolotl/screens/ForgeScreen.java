@@ -30,9 +30,9 @@ public class ForgeScreen extends ScreenAdapter {
             if (renderer.door.contains(touchPoint.x, touchPoint.y)) {
                 game.setScreen(new LobbyScreen(game, 5000));
             } else if (renderer.workshop.getPolygon().contains(touchPoint.x, touchPoint.y)) {
-                renderer.visibleTable = true;
+                renderer.showContainer(true);
             } else if (renderer.mannequin.getPolygon().contains(touchPoint.x, touchPoint.y)) {
-
+                renderer.showContainer(false);
             }
         }
     }
