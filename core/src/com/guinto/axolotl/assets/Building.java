@@ -18,7 +18,6 @@ public class Building extends Actor {
     private int drawY;
     private int drawWidth;
     private int drawHeight;
-
     private JsonObject building;
 
     public Building(String code) {
@@ -37,9 +36,9 @@ public class Building extends Actor {
                 vertices[i] = verticesArray.get(i).getAsFloat();
             }
             polygon = new Polygon(vertices);
-            polygon.setPosition(drawX, drawY);
-
+            polygon.setPosition(drawX + 200, drawY + 200);
             loadRegion();
+            setBounds(drawX, drawY, drawWidth, drawHeight);
         }
     }
 
@@ -52,6 +51,6 @@ public class Building extends Actor {
         batch.draw(buildingRegion, drawX, drawY, drawWidth, drawHeight);
     }
     public void draw(Batch batch) {
-        batch.draw(buildingRegion, drawX, drawY, drawWidth, drawHeight);
+//        batch.draw(buildingRegion, drawX, drawY, drawWidth, drawHeight);
     }
 }

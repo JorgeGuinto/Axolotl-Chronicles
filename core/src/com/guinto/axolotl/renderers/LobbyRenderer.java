@@ -1,11 +1,17 @@
 package com.guinto.axolotl.renderers;
 
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.guinto.axolotl.AxolotlChronicles;
-import com.guinto.axolotl.assets.Assets;
 import com.guinto.axolotl.assets.Building;
 import com.guinto.axolotl.characters.Axolotl;
 import com.guinto.axolotl.resources.AxolotlComparator;
+import com.guinto.axolotl.resources.BackgroundActor;
+import com.guinto.axolotl.screens.ForgeScreen;
+import com.guinto.axolotl.screens.InvocationScreen;
+import com.guinto.axolotl.screens.TestScreen;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -15,10 +21,12 @@ import lombok.Setter;
 
 public class LobbyRenderer {
 
-    private AxolotlChronicles game;
+    private final AxolotlChronicles game;
+    private Stage stage;
     private static ArrayList<Axolotl> poppedCharacters;
     private static ArrayList<Axolotl> shownCharacters;
     public float duration = 0;
+    private BackgroundActor backgroundActor = new BackgroundActor();
     @Setter
     private int currentCharacterIndex = 0;
     private float timeSinceLastCharacter = 0;
@@ -28,41 +36,17 @@ public class LobbyRenderer {
     private Building cBuilding = new Building("bLobbyC");
     private Building rBuilding = new Building("bLobbyR");
 
-
-    public LobbyRenderer(AxolotlChronicles game) {
+    public LobbyRenderer(final AxolotlChronicles game, Stage stage) {
         this.game = game;
+        this.stage = stage;
+        settingStaticElements();
         popCharacters();
     }
 
     public void render(float delta) {
         duration += delta;
-        renderBackground();
-        renderBuildings();
+        stage.draw();
         renderCharacters(delta);
-    }
-
-    private void renderBackground() {
-        game.batch.disableBlending();
-        game.batch.begin();
-        game.batch.draw(Assets.backgroundRegion, 0, 0);
-        game.batch.end();
-    }
-
-    private void renderBuildings() {
-        game.batch.enableBlending();
-        game.batch.begin();
-        switch ((int) game.guiCam.position.x) {
-            case 1000:
-                lBuilding.draw(game.batch);
-                break;
-            case 3000:
-                cBuilding.draw(game.batch);
-                break;
-            case 5000:
-                rBuilding.draw(game.batch);
-                break;
-        }
-        game.batch.end();
     }
 
     private void renderCharacters(float delta) {
@@ -111,17 +95,55 @@ public class LobbyRenderer {
             axolotl.setWaitTimer(0);
         }
     }
+    private void settingStaticElements() {
 
-    public boolean buildingTouch(float x, float y){
-        switch ((int) game.guiCam.position.x) {
-            case 1000:
-                return lBuilding.getPolygon().contains(x, y);
-            case 3000:
-                return cBuilding.getPolygon().contains(x, y);
-            case 5000:
-                return rBuilding.getPolygon().contains(x, y);
-        }
-        return false;
+        backgroundActor.setBounds(0, 0, 6000, 1125);
+
+        stage.addActor(backgroundActor);
+        stage.addActor(lBuilding);
+        stage.addActor(cBuilding);
+        stage.addActor(rBuilding);
+
+        lBuilding.addListener(new ClickListener(){
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                game.setScreen(new InvocationScreen(game));
+            }
+        });
+        rBuilding.addListener(new ClickListener(){
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                game.setScreen(new ForgeScreen(game));
+            }
+        });
+        cBuilding.addListener(new ClickListener(){
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                game.setScreen(new TestScreen(game, 3000));
+            }
+        });
+
+        backgroundActor.addListener(new ClickListener() {
+            private float startX;
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                startX = x;
+                return super.touchDown(event, x, y, pointer, button);
+            }
+            @Override
+            public void touchDragged(InputEvent event, float x, float y, int pointer) {
+
+                float changedX = x - startX;
+
+                System.out.println("X = " + x);
+                System.out.println("Start x = " + startX);
+                System.out.println("Changed x = " + changedX);
+
+                game.guiCam.position.add(-changedX, 0, 0);
+                game.guiCam.update();
+
+                System.out.println("Cam x = " + game.guiCam.position.x);
+            }
+        });
     }
-
 }

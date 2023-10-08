@@ -27,6 +27,7 @@ public class AxolotlChronicles extends Game {
 		AxolotlTextures.loadLobby(user);
 
 		setScreen(new LobbyScreen(this, 3000));
+//		setScreen(new TestScreen(this, 3000));
 	}
 
 	@Override
@@ -38,8 +39,9 @@ public class AxolotlChronicles extends Game {
 	public void setViewport() {
 		viewport = new FitViewport(2000, 1125);
 		guiCam = new OrthographicCamera();
+		viewport.setCamera(guiCam);
 		guiCam.setToOrtho(false, viewport.getWorldWidth(), viewport.getWorldHeight());
-		guiCam.position.set(2000 + (viewport.getWorldWidth() / 2), viewport.getWorldHeight() / 2, 0);
+//		guiCam.position.set((viewport.getWorldWidth() / 2), viewport.getWorldHeight() / 2, 0);
 		guiCam.update();
 	}
 }

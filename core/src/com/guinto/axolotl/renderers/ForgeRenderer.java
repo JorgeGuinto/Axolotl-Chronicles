@@ -53,24 +53,14 @@ public class ForgeRenderer {
     private Table details = new Table(Assets.skin);
     public boolean visibleTable = false;
     private Image picture = new Image();
-    private Label name = new Label("Name", Assets.skin, "button-d", Color.BLACK);
-    private TextArea description = new TextArea("This is the description Area", Assets.skin);
-    private TextArea characteristics = new TextArea("This is the \n Characteristics Area", Assets.skin);
+    private Label name = new Label("", Assets.skin, "button-d", Color.BLACK);
+    private TextArea description = new TextArea("", Assets.skin);
+    private TextArea characteristics = new TextArea("", Assets.skin);
 
     public ForgeRenderer (AxolotlChronicles game, Stage stage) {
         this.game = game;
         this.stage = stage;
         stage.setDebugAll(true);
-
-//        workshop.addListener(new ClickListener() {
-//            @Override
-//            public void clicked(InputEvent event, float x, float y) {
-//                System.out.println("Test");
-//            }
-//        });
-
-//        stage.addActor(mannequin);
-//        stage.addActor(workshop);
         Assets.loadForge();
         game.guiCam.position.set(1000, game.guiCam.position.y, 0);
         popCharacters();
@@ -82,8 +72,6 @@ public class ForgeRenderer {
         if (visibleTable) {
             mannequin.setVisible(false);
             workshop.setVisible(false);
-//            mannequin.setTouchable(Touchable.disabled);
-//            workshop.setTouchable(Touchable.disabled);
         } else {
             weaponContainer.setVisible(false);
             armorContainer.setVisible(false);
